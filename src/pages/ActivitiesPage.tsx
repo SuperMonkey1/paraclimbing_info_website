@@ -1,82 +1,9 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import EventCard, { EventProps } from '../components/EventCard';
+import { allEvents } from '../data/events';
 
 const ActivitiesPage: React.FC = () => {
-  const allEvents: EventProps[] = [
-    {
-      id: 'event1',
-      title: 'Paraclimbing Introduction Day',
-      date: 'April 15, 2025',
-      location: 'Brussels Climbing Center',
-      description: 'Join us for a day of introduction to paraclimbing. All abilities welcome!',
-      imageUrl: '/assets/events/intro-day.jpg',
-    },
-    {
-      id: 'event2',
-      title: 'Belgian Paraclimbing Championships',
-      date: 'May 20-21, 2025',
-      location: 'Antwerp Climbing Arena',
-      description: 'The annual Belgian Paraclimbing Championships featuring categories for all disabilities.',
-      imageUrl: '/assets/events/championships.jpg',
-    },
-    {
-      id: 'event3',
-      title: 'Paraclimbing Training Workshop',
-      date: 'June 10, 2025',
-      location: 'Ghent Climbing Gym',
-      description: 'A specialized workshop for paraclimbers looking to improve their techniques.',
-      imageUrl: '/assets/events/workshop.jpg',
-    },
-    {
-      id: 'event4',
-      title: 'Adaptive Climbing Equipment Demo',
-      date: 'July 5, 2025',
-      location: 'Liège Climbing Center',
-      description: 'Experience and learn about the latest adaptive climbing equipment and how it can assist various disabilities.',
-      imageUrl: '/assets/events/equipment-demo.jpg',
-    },
-    {
-      id: 'event5',
-      title: 'Outdoor Paraclimbing Trip',
-      date: 'August 15-16, 2025',
-      location: 'Freyr, Dinant',
-      description: 'A weekend outdoor climbing trip for experienced paraclimbers in the beautiful cliffs of Freyr.',
-      imageUrl: '/assets/events/outdoor-trip.jpg',
-    },
-    {
-      id: 'event6',
-      title: 'Paraclimbing Coaching Certification',
-      date: 'September 25-26, 2025',
-      location: 'Brussels Climbing Center',
-      description: 'Training program for climbing coaches who want to specialize in working with paraclimbers.',
-      imageUrl: '/assets/events/coaching-cert.jpg',
-    },
-    {
-      id: 'event7',
-      title: 'Family Climbing Day',
-      date: 'October 10, 2025',
-      location: 'Namur Climbing Gym',
-      description: 'A special day for paraclimbers and their families to climb together in a supportive environment.',
-      imageUrl: '/assets/events/family-day.jpg',
-    },
-    {
-      id: 'event8',
-      title: 'Paraclimbing Social Meet',
-      date: 'November 15, 2025',
-      location: 'Charleroi Climb Center',
-      description: 'A casual social climbing session for the paraclimbing community to connect and climb together.',
-      imageUrl: '/assets/events/social-meet.jpg',
-    },
-    {
-      id: 'event9',
-      title: 'End of Year Celebration',
-      date: 'December 18, 2025',
-      location: 'Brussels Event Hall',
-      description: 'Celebrating the achievements of Belgian paraclimbers throughout the year with awards and recognition.',
-      imageUrl: '/assets/events/year-end.jpg',
-    },
-  ];
 
   const [filterType, setFilterType] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -85,23 +12,18 @@ const ActivitiesPage: React.FC = () => {
     let filtered = [...allEvents];
     
     // Filter by type
-    if (filterType === 'competitions') {
+    if (filterType === 'international') {
+      filtered = filtered.filter(event => event.type === 'international');
+    } else if (filterType === 'competitions') {
       filtered = filtered.filter(event => 
-        event.title.toLowerCase().includes('championship') || 
-        event.description.toLowerCase().includes('competition')
+        (event.title.toLowerCase().includes('championship') || 
+        event.description.toLowerCase().includes('competition')) &&
+        event.type !== 'international'
       );
     } else if (filterType === 'workshops') {
-      filtered = filtered.filter(event => 
-        event.title.toLowerCase().includes('workshop') || 
-        event.title.toLowerCase().includes('training') ||
-        event.description.toLowerCase().includes('workshop')
-      );
+      filtered = filtered.filter(event => event.type === 'workshops');
     } else if (filterType === 'social') {
-      filtered = filtered.filter(event => 
-        event.title.toLowerCase().includes('social') || 
-        event.title.toLowerCase().includes('meet') ||
-        event.description.toLowerCase().includes('social')
-      );
+      filtered = filtered.filter(event => event.type === 'social');
     }
     
     // Apply search query
@@ -124,7 +46,7 @@ const ActivitiesPage: React.FC = () => {
       <Hero
         title="Activities & Events"
         subtitle="Join us for paraclimbing events, competitions, workshops, and social gatherings"
-        backgroundImage="/assets/activities-hero.jpg"
+        backgroundImage="/assets/events.jpg"
       />
       
       {/* Events Filters */}
@@ -147,13 +69,27 @@ const ActivitiesPage: React.FC = () => {
                 <button 
                   type="button" 
                   className={`px-4 py-2 text-sm font-medium border-t border-b ${
+                    filterType === 'international' 
+                      ? 'bg-primary text-white border-primary' 
+                      : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+                  }`}
+                  onClick={() => setFilterType('international')}
+                >
+                  International
+                </button>
+                <button 
+                  type="button" 
+                  className={`px-4 py-2 text-sm font-medium border-t border-b ${
                     filterType === 'competitions' 
                       ? 'bg-primary text-white border-primary' 
                       : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
                   }`}
                   onClick={() => setFilterType('competitions')}
                 >
-                  Competitions
+                  <span className="inline-flex items-center">
+                    <img src="/assets/belgium-flag.png" alt="Belgian flag" className="w-4 h-4 mr-1.5" />
+                    Competitions
+                  </span>
                 </button>
                 <button 
                   type="button" 
@@ -225,76 +161,42 @@ const ActivitiesPage: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-3xl mx-auto">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-dark mb-3">Weekly Training Sessions</h3>
+              <div className="p-6" id="monthly-training">
+                <h3 className="text-xl font-bold text-dark mb-3">Monthly Training Sessions</h3>
                 <div className="mb-4 text-gray-600">
                   <div className="flex items-center mb-1">
                     <svg className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
-                    <span>Brussels Climbing Center</span>
+                    <span>Various locations across Belgium</span>
                   </div>
                   <div className="flex items-center">
                     <svg className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>Every Tuesday, 18:00 - 20:00</span>
+                    <span>Dates and times vary each month</span>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Weekly coached sessions for paraclimbers of all levels. Equipment provided.
+                  We organize monthly training sessions for paraclimbers of all abilities across Belgium. Dates, times, and locations change regularly to accommodate climbers from different regions. Equipment is provided, and both beginners and experienced climbers are welcome. 
                 </p>
-                <button className="btn btn-primary">Register</button>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-dark mb-3">Beginner Introduction</h3>
-                <div className="mb-4 text-gray-600">
-                  <div className="flex items-center mb-1">
-                    <svg className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                <div className="flex justify-between items-center">
+                  <a 
+                    href="mailto:info@paraclimbing.be?subject=Monthly%20Training%20Session%20Inquiry" 
+                    className="btn btn-primary flex items-center"
+                  >
+                    <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span>Antwerp Climbing Arena</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>First Saturday of each month, 10:00 - 12:00</span>
+                    Contact Us
+                  </a>
+                  <div className="text-gray-600 text-sm">
+                    <span className="block">Check our social media or</span>
+                    <span className="block">subscribe to our newsletter for upcoming dates</span>
                   </div>
                 </div>
-                <p className="text-gray-700 mb-4">
-                  Monthly introduction sessions for newcomers to paraclimbing. Learn the basics in a supportive environment.
-                </p>
-                <button className="btn btn-primary">Register</button>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-dark mb-3">Competition Team Training</h3>
-                <div className="mb-4 text-gray-600">
-                  <div className="flex items-center mb-1">
-                    <svg className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                    <span>Ghent Climbing Gym</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>Thursdays and Sundays, 18:00 - 20:30</span>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-4">
-                  Intensive training for competitive paraclimbers. By application only.
-                </p>
-                <button className="btn btn-primary">Apply</button>
               </div>
             </div>
           </div>

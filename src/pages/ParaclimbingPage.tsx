@@ -35,7 +35,7 @@ const ParaclimbingPage: React.FC = () => {
       <Hero
         title="What is Paraclimbing?"
         subtitle="Understanding adaptive climbing for people with physical disabilities"
-        backgroundImage="/assets/paraclimbing-hero.jpg"
+        backgroundImage="/assets/what-is-paraclimbing-hero.jpg"
       />
       
       {/* Introduction Section */}
@@ -64,7 +64,8 @@ const ParaclimbingPage: React.FC = () => {
             <div className="aspect-w-16 aspect-h-9 mt-8 mb-8">
               <iframe 
                 className="w-full h-96 rounded-lg shadow-lg"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                //src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                src="https://www.youtube.com/embed/4oPIlcFeLaQ"
                 title="Paraclimbing Introduction"
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

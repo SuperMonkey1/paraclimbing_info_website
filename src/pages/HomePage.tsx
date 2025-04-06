@@ -1,43 +1,80 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Hero from '../components/Hero';
 import EventCard, { EventProps } from '../components/EventCard';
 import { Link } from 'react-router-dom';
+import { allEvents } from '../data/events';
 
 const HomePage: React.FC = () => {
-  const featuredEvents: EventProps[] = [
-    {
-      id: 'event1',
-      title: 'Paraclimbing Introduction Day',
-      date: 'April 15, 2025',
-      location: 'Brussels Climbing Center',
-      description: 'Join us for a day of introduction to paraclimbing. All abilities welcome!',
-      imageUrl: '/assets/events/intro-day.jpg',
-    },
-    {
-      id: 'event2',
-      title: 'Belgian Paraclimbing Championships',
-      date: 'May 20-21, 2025',
-      location: 'Antwerp Climbing Arena',
-      description: 'The annual Belgian Paraclimbing Championships featuring categories for all disabilities.',
-      imageUrl: '/assets/events/championships.jpg',
-    },
-    {
-      id: 'event3',
-      title: 'Paraclimbing Training Workshop',
-      date: 'June 10, 2025',
-      location: 'Ghent Climbing Gym',
-      description: 'A specialized workshop for paraclimbers looking to improve their techniques.',
-      imageUrl: '/assets/events/workshop.jpg',
-    },
-  ];
+  // Create the featured events list with prioritization rules
+  const featuredEvents = useMemo(() => {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; // January is 0
+    const showEndOfYearEvent = currentMonth >= 10 || currentMonth <= 1; // October to January
+    
+    const events: EventProps[] = [];
+    
+    // 1. Always add the monthly training session
+    const monthlyTraining = {
+      id: 'monthly-training',
+      title: 'Monthly Training Sessions',
+      date: 'Dates vary each month',
+      location: 'Various locations across Belgium',
+      description: 'We organize monthly training sessions for paraclimbers of all abilities across Belgium. Equipment is provided, and both beginners and experienced climbers are welcome.',
+      imageUrl: '/assets/monthly.jpg',
+      type: 'workshops',
+      externalUrl: '/activities#monthly-training' // Link to the activities page's monthly training section
+    };
+    events.push(monthlyTraining);
+    
+    // 2. Prioritize non-international events
+    const nonInternationalEvents = allEvents.filter(event => 
+      event.type !== 'international' && 
+      !(event.title.includes('End of Year') && !showEndOfYearEvent)
+    );
+    
+    // 3. Add end of year event if in October-January
+    const endOfYearEvent = allEvents.find(event => event.title.includes('End of Year'));
+    if (endOfYearEvent && showEndOfYearEvent) {
+      events.push(endOfYearEvent);
+    }
+    
+    // 4. Add other non-international events
+    const otherNonInternational = nonInternationalEvents
+      .filter(event => !event.title.includes('End of Year'))
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    
+    for (const event of otherNonInternational) {
+      if (events.length < 3 && !events.some(e => e.id === event.id)) {
+        events.push(event);
+      }
+    }
+    
+    // 5. Fill with international events if needed
+    if (events.length < 3) {
+      const internationalEvents = allEvents
+        .filter(event => event.type === 'international')
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      
+      for (const event of internationalEvents) {
+        if (events.length < 3) {
+          events.push(event);
+        } else {
+          break;
+        }
+      }
+    }
+    
+    // Limit to 3 events maximum
+    return events.slice(0, 3);
+  }, []);
 
   return (
     <div>
       <Hero
         title="Paraclimbing Belgium"
         subtitle="Promoting inclusive climbing experiences for people of all abilities"
-        ctaText="Get Started"
-        ctaLink="/paraclimbing"
+        ctaText="Subscribe to Newsletter"
+        ctaLink="#newsletter"
       />
       
       {/* About Section */}
@@ -96,68 +133,35 @@ const HomePage: React.FC = () => {
         </div>
       </section>
       
-      {/* Testimonials */}
-      <section className="section bg-primary text-white">
+
+      {/* Newsletter */}
+      <section id="newsletter" className="section bg-primary text-white">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Success Stories</h2>
-            <p className="max-w-3xl mx-auto opacity-90">
-              Hear from paraclimbers who have found joy, community, and personal growth through our programs.
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p className="mb-8">
+              Subscribe to our newsletter to receive updates on upcoming events, activities, and news from the Belgian paraclimbing community.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <div className="mb-4">
-                <svg className="h-8 w-8 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h10zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-                </svg>
-              </div>
-              <p className="mb-4 italic">
-                "Paraclimbing has changed my life. I never thought I'd be able to climb with my disability, 
-                but the community and support at Paraclimbing Belgium made it possible. Now I'm competing nationally!"
-              </p>
-              <div>
-                <p className="font-bold">Sophie D.</p>
-                <p className="text-sm opacity-75">Visual impairment paraclimber</p>
-              </div>
-            </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <div className="mb-4">
-                <svg className="h-8 w-8 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h10zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-                </svg>
-              </div>
-              <p className="mb-4 italic">
-                "The adaptive techniques I learned through Paraclimbing Belgium opened up a whole new world for me. 
-                The coaches are incredible and the community is so supportive."
-              </p>
-              <div>
-                <p className="font-bold">Marc V.</p>
-                <p className="text-sm opacity-75">Amputee paraclimber</p>
-              </div>
-            </div>
+            <form className="flex flex-col sm:flex-row gap-4 justify-center">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-gray-900 w-full sm:w-auto sm:flex-1"
+                required
+              />
+              <button type="submit" className="bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                Subscribe
+              </button>
+            </form>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <div className="mb-4">
-                <svg className="h-8 w-8 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h10zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-                </svg>
-              </div>
-              <p className="mb-4 italic">
-                "As a parent of a child with cerebral palsy, seeing my daughter climb for the first time was emotional. 
-                The joy on her face was priceless. Thank you Paraclimbing Belgium for making this possible."
-              </p>
-              <div>
-                <p className="font-bold">Thomas L.</p>
-                <p className="text-sm opacity-75">Parent of young paraclimber</p>
-              </div>
-            </div>
+            <p className="mt-4 text-sm opacity-80">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
           </div>
         </div>
       </section>
-      
+
       {/* Call to Action */}
       <section className="section bg-secondary text-white text-center">
         <div className="container">

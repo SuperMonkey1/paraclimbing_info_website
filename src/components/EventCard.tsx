@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface EventProps {
   id: string;
@@ -7,6 +8,8 @@ export interface EventProps {
   location: string;
   description: string;
   imageUrl: string;
+  type?: string;
+  externalUrl?: string;
 }
 
 const EventCard: React.FC<EventProps> = ({
@@ -15,15 +18,22 @@ const EventCard: React.FC<EventProps> = ({
   location,
   description,
   imageUrl,
+  type,
+  externalUrl,
 }) => {
   return (
     <div className="card h-full flex flex-col hover:shadow-xl transition-shadow duration-300">
-      <div className="h-48 overflow-hidden">
+      <div className="h-48 overflow-hidden relative bg-gray-100 flex items-center justify-center">
         <img 
           src={imageUrl} 
           alt={title} 
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105 p-2"
         />
+        {type === 'international' && (
+          <div className="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-lg text-sm font-semibold">
+            International
+          </div>
+        )}
       </div>
       <div className="card-content flex flex-col flex-grow">
         <h3 className="text-xl font-bold mb-2 text-dark">{title}</h3>
@@ -58,9 +68,38 @@ const EventCard: React.FC<EventProps> = ({
           </div>
         </div>
         <p className="text-gray-700 flex-grow mb-4">{description}</p>
-        <button className="btn btn-primary mt-auto self-start">
-          Learn More
-        </button>
+        {type !== 'international' && (
+          <div className="mt-auto self-start">
+            {externalUrl ? (
+              externalUrl.startsWith('/') ? (
+                // Internal link (React Router)
+                <Link 
+                  to={externalUrl}
+                  className="btn btn-primary flex items-center"
+                >
+                  Learn More
+                </Link>
+              ) : (
+                // External link
+                <a 
+                  href={externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="btn btn-primary flex items-center"
+                >
+                  Visit Website
+                  <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              )
+            ) : (
+              <button className="btn btn-primary">
+                Learn More
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
-  backgroundImage = '/assets/hero-bg.jpg',
+  backgroundImage = '/assets/group_slc.jpg',
   ctaText,
   ctaLink,
 }) => {
