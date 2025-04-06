@@ -180,6 +180,64 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* Corporate Sponsors */}
+      <section className="section bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-dark mb-4">Our Sponsors</h2>
+            <p className="text-gray-700 max-w-3xl mx-auto">
+              We're grateful to the following companies and organizations for their support of paraclimbing in Belgium.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/alpamayo.png" alt="Alpamayo" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/bouler.png" alt="Bouler" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/bvkb.png" alt="BVKB" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/bvlb.png" alt="BVLB" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/crux.png" alt="Crux" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/hal 9.png" alt="Hal 9" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/image.png" alt="Sponsor" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/kbf.png" alt="KBF" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/newrock.png" alt="Newrock" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/petite ile.png" alt="Petite Ile" className="max-h-20" />
+            </div>
+            <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+              <img src="/assets/sponsors/yugen.png" alt="Yugen" className="max-h-20" />
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-gray-700 mb-6">
+              Interested in becoming a sponsor? We offer various sponsorship packages with benefits including 
+              logo placement, social media recognition, and more.
+            </p>
+            <Link to="/support-us" className="btn btn-primary">
+              Become a Sponsor
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

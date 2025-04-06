@@ -31,9 +31,23 @@ const Hero: React.FC<HeroProps> = ({
           <p className="text-lg md:text-xl text-center max-w-3xl mb-8">{subtitle}</p>
         )}
         {ctaText && ctaLink && (
-          <Link to={ctaLink} className="btn btn-primary text-lg px-8 py-3">
-            {ctaText}
-          </Link>
+          ctaLink.startsWith('#') ? (
+            <button 
+              onClick={() => {
+                const element = document.querySelector(ctaLink);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }} 
+              className="btn btn-primary text-lg px-8 py-3"
+            >
+              {ctaText}
+            </button>
+          ) : (
+            <Link to={ctaLink} className="btn btn-primary text-lg px-8 py-3">
+              {ctaText}
+            </Link>
+          )
         )}
       </div>
     </div>
