@@ -8,6 +8,10 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Close submenu when main menu is toggled
+    if (!isMenuOpen) {
+      setIsSubMenuOpen(false);
+    }
   };
 
   const toggleSubMenu = () => {
@@ -27,6 +31,12 @@ const Navbar: React.FC = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+  
+  // Function to handle menu item clicks
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+    setIsSubMenuOpen(false);
+  };
 
   return (
     <nav className="bg-white shadow-md">
@@ -103,16 +113,15 @@ const Navbar: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              <a href="/" className="text-dark hover:text-primary transition-colors px-4 py-2">
                 Home
-              </Link>
+              </a>
+              
+              {/* Paraclimbing Section */}
               <div className="px-4 py-2">
                 <div 
-                  className="flex items-center justify-between text-dark"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsSubMenuOpen(!isSubMenuOpen);
-                  }}
+                  className="flex items-center justify-between text-dark cursor-pointer w-full"
+                  onClick={toggleSubMenu}
                 >
                   <span>Paraclimbing</span>
                   <svg className={`ml-1 h-4 w-4 transition-transform ${isSubMenuOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,34 +129,32 @@ const Navbar: React.FC = () => {
                   </svg>
                 </div>
                 
+                {/* Mobile Submenu with direct links */}
                 {isSubMenuOpen && (
                   <div className="mt-2 ml-4 space-y-2">
-                    <Link 
-                      to="/paraclimbing" 
-                      className="block text-dark hover:text-primary transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      What is Paraclimbing?
-                    </Link>
-                    <Link 
-                      to="/belgian-team" 
-                      className="block text-dark hover:text-primary transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Belgian Team
-                    </Link>
+                    <div className="py-2">
+                      <a href="/paraclimbing" className="block text-dark hover:text-primary transition-colors">
+                        What is Paraclimbing?
+                      </a>
+                    </div>
+                    <div className="py-2">
+                      <a href="/belgian-team" className="block text-dark hover:text-primary transition-colors">
+                        Belgian Team
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>
-              <Link to="/activities" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              
+              <a href="/activities" className="text-dark hover:text-primary transition-colors px-4 py-2">
                 Activities
-              </Link>
-              <Link to="/support-us" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              </a>
+              <a href="/support-us" className="text-dark hover:text-primary transition-colors px-4 py-2">
                 Support Us
-              </Link>
-              <Link to="/contact" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              </a>
+              <a href="/contact" className="text-dark hover:text-primary transition-colors px-4 py-2">
                 Contact
-              </Link>
+              </a>
             </div>
           </div>
         )}

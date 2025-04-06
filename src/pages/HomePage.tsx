@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
               <p className="text-gray-700 mb-4">
                 Paraclimbing Belgium is dedicated to making climbing accessible for people with disabilities. 
                 We believe that everyone should have the opportunity to experience the joy and challenge of climbing, 
-                regardless of physical or cognitive abilities.
+                regardless of physical abilities.
               </p>
               <p className="text-gray-700 mb-6">
                 Through our programs, events, and advocacy, we aim to create an inclusive climbing community 
