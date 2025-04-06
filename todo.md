@@ -1,3 +1,4 @@
 - newsletter
-- team belgium page
 - translations
+- team belgium page
+- about page
