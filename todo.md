@@ -1,6 +1,4 @@
-- paralympics
-- join community
-    - sponsor
-    - volunteer
-    - ambassador
-- join newsletter
+- newsletter
+- support page
+- team belgium page
+- translations

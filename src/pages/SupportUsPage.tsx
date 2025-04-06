@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
+import DevelopmentNotice from '../components/DevelopmentNotice';
 
 const SupportUsPage: React.FC = () => {
   const donationOptions = [
@@ -65,6 +66,7 @@ const SupportUsPage: React.FC = () => {
 
   return (
     <div>
+      <DevelopmentNotice pageName="Support Us" />
       <Hero
         title="Support Our Mission"
         subtitle="Help us make climbing accessible for everyone in Belgium"

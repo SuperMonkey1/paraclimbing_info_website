@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const subMenuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const toggleSubMenu = () => {
+    setIsSubMenuOpen(!isSubMenuOpen);
+  };
+
+  // Close the submenu when clicking outside of it
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (subMenuRef.current && !subMenuRef.current.contains(event.target as Node)) {
+        setIsSubMenuOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-white shadow-md">
@@ -24,9 +44,36 @@ const Navbar: React.FC = () => {
             <Link to="/" className="text-dark hover:text-primary transition-colors">
               Home
             </Link>
-            <Link to="/paraclimbing" className="text-dark hover:text-primary transition-colors">
-              Paraclimbing
-            </Link>
+            <div className="relative" ref={subMenuRef}>
+              <button 
+                onClick={toggleSubMenu}
+                className="flex items-center text-dark hover:text-primary transition-colors focus:outline-none"
+              >
+                <span>Paraclimbing</span>
+                <svg className={`ml-1 h-4 w-4 transition-transform ${isSubMenuOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isSubMenuOpen && (
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                  <Link 
+                    to="/paraclimbing" 
+                    className="block px-4 py-2 text-dark hover:bg-gray-100 hover:text-primary transition-colors"
+                    onClick={() => setIsSubMenuOpen(false)}
+                  >
+                    What is Paraclimbing?
+                  </Link>
+                  <Link 
+                    to="/belgian-team" 
+                    className="block px-4 py-2 text-dark hover:bg-gray-100 hover:text-primary transition-colors"
+                    onClick={() => setIsSubMenuOpen(false)}
+                  >
+                    Belgian Team
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link to="/activities" className="text-dark hover:text-primary transition-colors">
               Activities
             </Link>
@@ -59,9 +106,39 @@ const Navbar: React.FC = () => {
               <Link to="/" className="text-dark hover:text-primary transition-colors px-4 py-2">
                 Home
               </Link>
-              <Link to="/paraclimbing" className="text-dark hover:text-primary transition-colors px-4 py-2">
-                Paraclimbing
-              </Link>
+              <div className="px-4 py-2">
+                <div 
+                  className="flex items-center justify-between text-dark"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsSubMenuOpen(!isSubMenuOpen);
+                  }}
+                >
+                  <span>Paraclimbing</span>
+                  <svg className={`ml-1 h-4 w-4 transition-transform ${isSubMenuOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+                
+                {isSubMenuOpen && (
+                  <div className="mt-2 ml-4 space-y-2">
+                    <Link 
+                      to="/paraclimbing" 
+                      className="block text-dark hover:text-primary transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      What is Paraclimbing?
+                    </Link>
+                    <Link 
+                      to="/belgian-team" 
+                      className="block text-dark hover:text-primary transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Belgian Team
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link to="/activities" className="text-dark hover:text-primary transition-colors px-4 py-2">
                 Activities
               </Link>
