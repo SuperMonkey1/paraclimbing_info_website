@@ -33,9 +33,6 @@ const Navbar: React.FC = () => {
             <Link to="/paraclimbing" className="text-dark hover:text-primary transition-colors">
               What is Paraclimbing?
             </Link>
-            <Link to="/belgian-team" className="text-dark hover:text-primary transition-colors">
-              Belgian Team
-            </Link>
             <Link to="/activities" className="text-dark hover:text-primary transition-colors">
               Activities
             </Link>
@@ -70,9 +67,6 @@ const Navbar: React.FC = () => {
               </Link>
               <Link to="/paraclimbing" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 What is Paraclimbing?
-              </Link>
-              <Link to="/belgian-team" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
-                Belgian Team
               </Link>
               <Link to="/activities" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 Activities

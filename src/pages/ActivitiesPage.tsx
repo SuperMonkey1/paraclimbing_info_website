@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import EventCard, { EventProps } from '../components/EventCard';
 import { allEvents } from '../data/events';
+import { NewsletterSubscriptionForm } from '../components/newsletter';
 
 const ActivitiesPage: React.FC = () => {
 
@@ -206,28 +207,7 @@ const ActivitiesPage: React.FC = () => {
       {/* Newsletter */}
       <section className="section bg-primary text-white">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="mb-8">
-              Subscribe to our newsletter to receive updates on upcoming events, activities, and news from the Belgian paraclimbing community.
-            </p>
-            
-            <form className="flex flex-col sm:flex-row gap-4 justify-center">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-gray-900 w-full sm:w-auto sm:flex-1"
-                required
-              />
-              <button type="submit" className="bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
-                Subscribe
-              </button>
-            </form>
-            
-            <p className="mt-4 text-sm opacity-80">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
-          </div>
+          <NewsletterSubscriptionForm />
         </div>
       </section>
     </div>

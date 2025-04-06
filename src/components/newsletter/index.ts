@@ -1,2 +1,5 @@
-// This file is intentionally left empty to be removed
-export {}
+import NewsletterSubscriptionForm from './NewsletterSubscriptionForm';
+
+export {
+  NewsletterSubscriptionForm
+};

@@ -346,22 +346,6 @@ const ParaclimbingPage: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* Call to Action - View Belgian Team */}
-      <section className="section bg-primary text-white">
-        <div className="container text-center py-12">
-          <h2 className="text-3xl font-bold mb-4">Meet Our Belgian Paraclimbing Athletes</h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Belgium has a growing team of talented paraclimbers who represent our country in national and international competitions.
-          </p>
-          <a 
-            href="/belgian-team" 
-            className="inline-block px-6 py-3 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            View Belgian Team
-          </a>
-        </div>
-      </section>
     </div>
   );
 };
