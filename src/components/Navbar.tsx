@@ -109,13 +109,14 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
+          {/* Mobile Menu */}
+          {isMenuOpen && (
           <div className="md:hidden py-4">
             <div className="flex flex-col space-y-4">
-              <a href="/" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              {/* Use Link for Home */}
+              <Link to="/" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 Home
-              </a>
+              </Link>
               
               {/* Paraclimbing Section */}
               <div className="px-4 py-2">
@@ -129,32 +130,35 @@ const Navbar: React.FC = () => {
                   </svg>
                 </div>
                 
-                {/* Mobile Submenu with direct links */}
+                {/* Mobile Submenu with Link components */}
                 {isSubMenuOpen && (
                   <div className="mt-2 ml-4 space-y-2">
                     <div className="py-2">
-                      <a href="/paraclimbing" className="block text-dark hover:text-primary transition-colors">
+                      {/* Use Link for Submenu Item */}
+                      <Link to="/paraclimbing" className="block text-dark hover:text-primary transition-colors" onClick={handleMenuItemClick}>
                         What is Paraclimbing?
-                      </a>
+                      </Link>
                     </div>
                     <div className="py-2">
-                      <a href="/belgian-team" className="block text-dark hover:text-primary transition-colors">
+                       {/* Use Link for Submenu Item */}
+                      <Link to="/belgian-team" className="block text-dark hover:text-primary transition-colors" onClick={handleMenuItemClick}>
                         Belgian Team
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 )}
               </div>
               
-              <a href="/activities" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              {/* Use Link for other items */}
+              <Link to="/activities" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 Activities
-              </a>
-              <a href="/support-us" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              </Link>
+              <Link to="/support-us" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 Support Us
-              </a>
-              <a href="/contact" className="text-dark hover:text-primary transition-colors px-4 py-2">
+              </Link>
+              <Link to="/contact" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         )}
