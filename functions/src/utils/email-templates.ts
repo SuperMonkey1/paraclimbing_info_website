@@ -17,7 +17,7 @@ export const subscriptionConfirmationEmail = {
     return `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background-color: #3498db; color: white; padding: 20px; text-align: center;">
-          <h1>Welkom bij Paraclimbing!</h1>
+          <h1>Welkom tot de wondere wereld van het Paraklimmen!</h1>
         </div>
         <div style="padding: 20px; background-color: #f9f9f9;">
           <p>Hallo,</p>
