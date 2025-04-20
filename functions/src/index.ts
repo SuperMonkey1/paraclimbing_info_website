@@ -57,7 +57,7 @@ export const sendConfirmationEmail = onDocumentCreated(
       const mailOptions = {
         from: `${process.env.FROM_NAME || "Belgian Paraclimbing"} <${process.env.GMAIL_USER}>`,
         to: email,
-        subject: "Thank you for subscribing to Belgian Paraclimbing updates",
+        subject: "Thanks for subscribing to Belgian Paraclimbing updates",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <div style="background-color: #3498db; color: white; padding: 20px; text-align: center;">
