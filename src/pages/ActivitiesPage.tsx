@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import EventCard, { EventProps } from '../components/EventCard';
 import { allEvents } from '../data/events';
-import { NewsletterSubscriptionForm } from '../components/newsletter';
+import NewsletterSubscriptionForm from '../components/NewsletterSubscriptionForm';
 
 const ActivitiesPage: React.FC = () => {
 

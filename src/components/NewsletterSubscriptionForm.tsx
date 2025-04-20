@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { subscribeToNewsletter } from '../../firebase/services';
+import { subscribeToNewsletter } from '../firebase/services';
 
 const NewsletterSubscriptionForm: React.FC = () => {
   const [email, setEmail] = useState('');

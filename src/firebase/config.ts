@@ -25,11 +25,11 @@ try {
     app = firebase.app();
   }
   
-  // Create mock db object in case Firestore initialization fails
-  db = {} as firebase.firestore.Firestore;
+  // Initialize Firestore
+  db = app.firestore();
   
-  // Log success but no need to actually initialize Firestore
-  console.log('Firebase config initialized (Firestore disabled)');
+  // Log success
+  console.log('Firebase config and Firestore initialized successfully');
 } catch (error) {
   console.error('Error initializing Firebase:', error);
   // Create dummy implementations for development

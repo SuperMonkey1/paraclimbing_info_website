@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import Hero from '../components/Hero';
 import EventCard, { EventProps } from '../components/EventCard';
 import { Link } from 'react-router-dom';
-import { NewsletterSubscriptionForm } from '../components/newsletter';
 import { allEvents } from '../data/events';
+import NewsletterSubscriptionForm from '../components/NewsletterSubscriptionForm';
 
 const HomePage: React.FC = () => {
   // Create the featured events list with prioritization rules
