@@ -1,0 +1,184 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "paraclimbing": "Qu'est-ce que le Paraclimbing?",
+    "activities": "Activités",
+    "support": "Soutenez-nous",
+    "contact": "Contact"
+  },
+  "languages": {
+    "en": "English",
+    "nl": "Nederlands",
+    "fr": "Français"
+  },
+  "hero": {
+    "title": "Paraclimbing Belgique",
+    "subtitle": "Promouvoir des expériences d'escalade inclusives pour des personnes de toutes capacités",
+    "ctaText": "S'abonner à la newsletter"
+  },
+  "about": {
+    "title": "À propos de Paraclimbing Belgique",
+    "paragraph1": "Paraclimbing Belgique se consacre à rendre l'escalade accessible aux personnes en situation de handicap. Nous croyons que chacun devrait avoir l'opportunité d'expérimenter la joie et le défi de l'escalade, indépendamment de ses capacités physiques.",
+    "paragraph2": "À travers nos programmes, événements et actions de sensibilisation, nous visons à créer une communauté d'escalade inclusive en Belgique qui accueille les grimpeurs de toutes capacités et leur fournit le soutien et les ressources dont ils ont besoin pour s'épanouir.",
+    "learnMore": "En savoir plus"
+  },
+  "events": {
+    "title": "Événements à venir",
+    "description": "Rejoignez-nous lors d'un de nos événements à venir pour expérimenter le paraclimbing de première main, rencontrer notre communauté, et découvrir les possibilités de l'escalade adaptative.",
+    "monthlyTraining": {
+      "title": "Sessions d'Entraînement Mensuelles",
+      "date": "Les dates varient chaque mois",
+      "location": "Différents endroits à travers la Belgique",
+      "description": "Nous organisons des sessions d'entraînement mensuelles pour les paragrimpeurs de tous niveaux à travers la Belgique. L'équipement est fourni, et les débutants comme les grimpeurs expérimentés sont les bienvenus."
+    },
+    "viewAll": "Voir tous les événements",
+    "learnMore": "En savoir plus",
+    "visitWebsite": "Visiter le site web",
+    "international": "International"
+  },
+  "newsletter": {
+    "title": "Restez Informé",
+    "description": "Abonnez-vous à notre newsletter pour recevoir des mises à jour sur les événements à venir, les activités et les actualités de la communauté belge de paraclimbing.",
+    "placeholder": "Votre adresse e-mail",
+    "button": "S'abonner",
+    "subscribing": "Abonnement en cours...",
+    "success": "Merci de vous être abonné à notre newsletter!",
+    "error": "Veuillez entrer une adresse e-mail valide",
+    "privacy": "Nous respectons votre vie privée. Désabonnez-vous à tout moment."
+  },
+  "cta": {
+    "title": "Rejoignez Notre Communauté",
+    "description": "Que vous soyez un grimpeur en situation de handicap, un membre de la famille, un bénévole potentiel, ou quelqu'un intéressé à soutenir notre mission, nous vous invitons à rejoindre notre communauté.",
+    "contactUs": "Contactez-nous",
+    "support": "Soutenez Notre Mission"
+  },
+  "sponsors": {
+    "title": "Nos Sponsors",
+    "description": "Nous sommes reconnaissants envers les entreprises et organisations suivantes pour leur soutien au paraclimbing en Belgique.",
+    "becomeASponsor": "Devenir un Sponsor",
+    "sponsorInfo": "Intéressé à devenir sponsor? Nous proposons divers forfaits de parrainage avec des avantages incluant le placement de logo, la reconnaissance sur les médias sociaux, et plus encore."
+  },
+  "activitiesPage": {
+    "title": "Activités & Événements",
+    "subtitle": "Rejoignez-nous pour des événements de paraclimbing, des compétitions, des ateliers et des rassemblements sociaux",
+    "filters": {
+      "allEvents": "Tous les Événements",
+      "international": "International",
+      "competitions": "Compétitions",
+      "workshops": "Ateliers",
+      "socialEvents": "Événements Sociaux",
+      "searchPlaceholder": "Rechercher des événements par titre, description ou lieu"
+    },
+    "noEventsFound": {
+      "title": "Aucun événement trouvé",
+      "description": "Essayez d'ajuster vos filtres ou critères de recherche pour trouver des événements."
+    },
+    "regularActivities": {
+      "title": "Activités Régulières",
+      "description": "Au-delà de nos événements spéciaux, nous proposons des sessions régulières de paraclimbing dans des salles d'escalade partenaires à travers la Belgique.",
+      "monthlyTraining": {
+        "title": "Sessions d'Entraînement Mensuelles",
+        "locationPrefix": "Différents endroits à travers la Belgique",
+        "timePrefix": "Les dates et heures varient chaque mois",
+        "description": "Nous organisons des sessions d'entraînement mensuelles pour les paragrimpeurs de tous niveaux à travers la Belgique. Les dates, heures et lieux changent régulièrement pour accueillir des grimpeurs de différentes régions. L'équipement est fourni, et les débutants comme les grimpeurs expérimentés sont les bienvenus.",
+        "contactUs": "Contactez-nous",
+        "socialMediaCheck": "Consultez nos réseaux sociaux ou",
+        "newsletterSubscribe": "abonnez-vous à notre newsletter pour les prochaines dates"
+      }
+    }
+  },
+  "footer": {
+    "organization": "Paraclimbing.be",
+    "tagline": "Promouvoir des expériences d'escalade inclusives pour des personnes de toutes capacités en Belgique.",
+    "quickLinks": "Liens Rapides",
+    "aboutParaclimbing": "À propos du Paraclimbing",
+    "activitiesEvents": "Activités & Événements",
+    "supportUs": "Soutenez-nous",
+    "contactUs": "Contactez-nous",
+    "contactInfo": "Contactez-nous",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "copyright": "Tous droits réservés."
+  },
+  "supportUsPage": {
+    "hero": {
+      "title": "Soutenez Notre Mission",
+      "subtitle": "Aidez-nous à rendre l'escalade accessible à tous en Belgique"
+    },
+    "volunteerSection": {
+      "title": "Devenez Bénévole",
+      "description": "Votre temps et vos compétences peuvent faire une énorme différence pour notre organisation et les paragrimpeurs que nous soutenons."
+    },
+    "volunteerOpportunities": [
+      {
+        "title": "Responsable des Médias Sociaux et du Contenu",
+        "description": "Aidez à gérer notre présence sur les médias sociaux et créez du contenu engageant pour promouvoir le paraclimbing"
+      },
+      {
+        "title": "Sensibilisation des Paragrimpeurs",
+        "description": "Aidez-nous à atteindre et à établir des liens avec des paragrimpeurs potentiels à travers la Belgique"
+      },
+      {
+        "title": "Responsable Local",
+        "description": "Soyez un représentant local dans votre ville pour nous aider à étendre notre réseau en établissant des antennes locales dans les 'centrumsteden'"
+      },
+      {
+        "title": "Bénévole Ad Hoc",
+        "description": "Rejoignez notre groupe de bénévoles que nous pouvons contacter lorsque nous avons besoin d'aide pour des tâches ou des événements spécifiques (Vrije rol ad hoc)"
+      }
+    ],
+    "volunteerCTA": {
+      "title": "Prêt à Devenir Bénévole ?",
+      "description": "Remplissez notre formulaire de candidature de bénévolat et nous vous contacterons pour discuter de la façon dont vous pouvez vous impliquer.",
+      "buttonText": "Postuler comme Bénévole"
+    },
+    "whySupportSection": {
+      "title": "Pourquoi Soutenir Paraclimbing Belgique ?",
+      "description": "Votre contribution nous aide à créer des opportunités d'escalade inclusives pour les personnes en situation de handicap à travers la Belgique."
+    },
+    "contributionUse": {
+      "title": "Comment Votre Contribution Sera Utilisée",
+      "items": [
+        "Pour promouvoir le paraclimbing en Belgique, nous créons et imprimons du matériel promotionnel et faisons du marketing sur les réseaux sociaux",
+        "Organiser des initiations à l'escalade",
+        "Construire une communauté de paraclimbing en Belgique, un groupe de paragrimpeurs partageant les mêmes idées qui veulent devenir de meilleurs grimpeurs. Les soutenir en fournissant des sessions d'entraînement fréquentes",
+        "Soutenir nos bénévoles",
+        "Soutenir les membres de l'équipe belge pour limiter la charge financière des compétitions internationales"
+      ]
+    },
+    "financialSupport": {
+      "title": "Soutenez-nous Financièrement",
+      "description": "Votre soutien financier finance directement nos programmes et nous aide à étendre notre portée."
+    },
+    "bankTransfer": {
+      "title": "Virement Bancaire",
+      "description": "Effectuez un virement direct sur notre compte :",
+      "organization": "Parabel VZW",
+      "iban": "IBAN : BE29 7340 5844 8064",
+      "bic": "BIC : KREDBEBB"
+    },
+    "corporateSponsorship": {
+      "title": "Parrainage d'Entreprise",
+      "description": "Votre entreprise est-elle intéressée à soutenir l'accessibilité dans le sport ?",
+      "contact": "Contactez-nous à",
+      "contactEnd": "pour discuter des opportunités de parrainage."
+    }
+  },
+  "contactPage": {
+    "title": "Contactez-nous",
+    "subtitle": "Prenez contact avec notre équipe pour toute question ou demande",
+    "contactInformation": "Coordonnées de Contact",
+    "emailInfo": "Nous nous efforçons de répondre à toutes les demandes dans un délai de 48 heures.",
+    "phoneInfo": "Veuillez nous contacter par téléphone pour les questions urgentes",
+    "officeLocation": "Adresse du Bureau",
+    "byAppointmentOnly": "Sur rendez-vous uniquement",
+    "socialMedia": "Réseaux Sociaux",
+    "emailUs": "Envoyez-nous un E-mail",
+    "faqTitle": "Question Fréquemment Posée",
+    "faqDescription": "Voici une question importante que nous recevons souvent à propos de nos programmes de paraclimbing.",
+    "faqQuestion": "Proposez-vous également des sessions de paraclimbing pour les personnes ayant un handicap mental ou de l'autisme ?",
+    "faqAnswer": "Actuellement, nos programmes de paraclimbing sont spécifiquement conçus pour les personnes ayant un handicap physique. Bien que nous nous efforcions toujours d'être inclusifs, notre expertise, nos ressources et nos entraîneurs formés sont spécialisés dans le soutien aux grimpeurs ayant divers handicaps physiques. Nous serions heureux de vous recommander d'autres organisations d'escalade qui proposent d'excellents programmes pour les personnes atteintes d'autisme ou de handicap mental si vous nous contactez directement !",
+    "moreQuestionsText": "Vous ne trouvez pas la réponse à votre question ? N'hésitez pas à nous contacter directement."
+  }
+}

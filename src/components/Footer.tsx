@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-dark text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Paraclimbing.be</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.organization')}</h3>
             <p className="text-gray-300 mb-4">
-              Promoting inclusive climbing experiences for people of all abilities in Belgium.
+              {t('footer.tagline')}
             </p>
             <div className="flex space-x-4">
               <a href="https://www.instagram.com/paraclimbing.team.belgium" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
@@ -21,36 +23,36 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-white">Home</Link>
+                <Link to="/" className="text-gray-300 hover:text-white">{t('navbar.home')}</Link>
               </li>
               <li>
-                <Link to="/paraclimbing" className="text-gray-300 hover:text-white">About Paraclimbing</Link>
+                <Link to="/paraclimbing" className="text-gray-300 hover:text-white">{t('footer.aboutParaclimbing')}</Link>
               </li>
               <li>
-                <Link to="/activities" className="text-gray-300 hover:text-white">Activities & Events</Link>
+                <Link to="/activities" className="text-gray-300 hover:text-white">{t('footer.activitiesEvents')}</Link>
               </li>
               <li>
-                <Link to="/support-us" className="text-gray-300 hover:text-white">Support Us</Link>
+                <Link to="/support-us" className="text-gray-300 hover:text-white">{t('footer.supportUs')}</Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link>
+                <Link to="/contact" className="text-gray-300 hover:text-white">{t('footer.contactUs')}</Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.contactInfo')}</h3>
             <p className="text-gray-300 mb-2">
-              <span className="font-semibold">Email:</span> info@paraclimbing.be
+              <span className="font-semibold">{t('footer.email')}:</span> info@paraclimbing.be
             </p>
             <p className="text-gray-300 mb-2">
-              <span className="font-semibold">Phone:</span> 0489410092
+              <span className="font-semibold">{t('footer.phone')}:</span> 0489410092
             </p>
             <p className="text-gray-300">
-              <span className="font-semibold">Adres:</span><br />
+              <span className="font-semibold">{t('footer.address')}:</span><br />
               Parabel VZW<br />
               Valkerijgang 32<br />
               3000 Leuven, Belgium
@@ -59,7 +61,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-          <p>&copy; {new Date().getFullYear()} Paraclimbing.be. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Paraclimbing.be. {t('footer.copyright')}</p>
         </div>
       </div>
     </footer>

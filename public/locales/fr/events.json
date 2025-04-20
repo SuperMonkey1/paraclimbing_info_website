@@ -1,0 +1,95 @@
+{
+  "events": [
+    {
+      "id": "intl1",
+      "title": "Championnat Autrichien de Paraclimbing Ouvert",
+      "date": "12 avril 2025",
+      "location": "Vienne, Autriche",
+      "description": "Compétition Internationale Master / Open avec catégories : AL, AU, B, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "workshop1",
+      "title": "Atelier de Paraclimbing au Salon REVA 2025",
+      "date": "24-26 avril 2025",
+      "location": "Flanders Expo, Maaltekouter 1, 9051 Gand",
+      "description": "Participez à notre initiation au paraclimbing au salon REVA, le salon d'information pour les personnes handicapées. Tous les jours de 9h30 à 17h00. Entrée gratuite.",
+      "imageUrl": "/assets/reva.png",
+      "type": "workshops",
+      "externalUrl": "https://reva.be/"
+    },
+    {
+      "id": "intl2",
+      "title": "Coupe Allemande de Paraclimbing – Karlsruhe",
+      "date": "17 mai 2025",
+      "location": "Karlsruhe, Allemagne",
+      "description": "Compétition Nationale avec catégories : AL, AU, B, IN, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "intl3",
+      "title": "Coupe du Monde IFSC de Paraclimbing à Salt Lake City",
+      "date": "20-21 mai 2025",
+      "location": "Salt Lake City, États-Unis",
+      "description": "Coupe du Monde IFSC avec catégories : AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "intl4",
+      "title": "Coupe du Monde IFSC de Paraclimbing à Innsbruck",
+      "date": "23-24 juin 2025",
+      "location": "Innsbruck, Autriche",
+      "description": "Coupe du Monde IFSC avec catégories : AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "intl5",
+      "title": "Championnats Nationaux Allemands de Paraclimbing",
+      "date": "5-6 juillet 2025",
+      "location": "Augsburg, Allemagne",
+      "description": "Compétition Internationale Master / Open avec catégories : AL, AU, B, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "intl6",
+      "title": "Coupe SAC de Paraclimbing - Bulle",
+      "date": "12 juillet 2025",
+      "location": "Bulle, Suisse",
+      "description": "Compétition Internationale Master / Open avec catégories : AL, AU, B, Open, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "intl7",
+      "title": "Championnats du Monde IFSC de Paraclimbing à Séoul",
+      "date": "20-25 septembre 2025",
+      "location": "Séoul, Corée du Sud",
+      "description": "Championnats du Monde IFSC avec catégories : AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "intl8",
+      "title": "Coupe du Monde IFSC de Paraclimbing à Laval",
+      "date": "24-26 octobre 2025",
+      "location": "Laval, France",
+      "description": "Coupe du Monde IFSC avec catégories : AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "event9",
+      "title": "Célébration de Fin d'Année",
+      "date": "18 décembre 2025",
+      "location": "Brussels Event Hall",
+      "description": "Célébration de fin d'année pour tous les bénévoles, sponsors et paragrimpeurs. Rejoignez-nous pour célébrer les réussites de la communauté belge de paraclimbing.",
+      "imageUrl": "/assets/events/year-end.jpg",
+      "type": "social"
+    }
+  ]
+}

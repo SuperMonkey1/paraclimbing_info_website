@@ -1,0 +1,184 @@
+{
+  "navbar": {
+    "home": "Home",
+    "paraclimbing": "Wat is Paraklimmen?",
+    "activities": "Activiteiten",
+    "support": "Steun Ons",
+    "contact": "Contact"
+  },
+  "languages": {
+    "en": "English",
+    "nl": "Nederlands",
+    "fr": "Français"
+  },
+  "hero": {
+    "title": "Paraclimbing.be",
+    "subtitle": "Wij promoten en ondersteunen paraklimmen in België",
+    "ctaText": "Abonneer op nieuwsbrief"
+  },
+  "about": {
+    "title": "Over Paraklimmen België",
+    "paragraph1": "Paraclimbing.be zet zich in om klimmen toegankelijk te maken voor mensen met een fysiekebeperking. Wij geloven dat iedereen de mogelijkheid moet hebben om de vreugde en uitdaging van het klimmen te ervaren, ongeacht fysieke mogelijkheden.",
+    "paragraph2": "Door middel van promotie, activiteiten en belangenbehartiging streven we ernaar om een inclusieve klimgemeenschap in België te creëren die klimmers van alle niveaus verwelkomt en hen voorziet van de ondersteuning en middelen die ze nodig hebben om te groeien.",
+    "learnMore": "Meer informatie"
+  },
+  "events": {
+    "title": "Aankomende Evenementen",
+    "description": "Doe mee aan een van onze aankomende evenementen om paraklimmen uit eerste hand te ervaren, onze gemeenschap te ontmoeten en de mogelijkheden van paraklimmen te ontdekken.",
+    "monthlyTraining": {
+      "title": "Maandelijkse Trainingssessies",
+      "date": "Data variëren per maand",
+      "location": "Verschillende locaties in heel België",
+      "description": "We organiseren maandelijkse trainingssessies voor paraklimmers van alle niveaus in heel België. Materiaal wordt voorzien en zowel beginners als ervaren klimmers zijn welkom."
+    },
+    "viewAll": "Bekijk alle evenementen",
+    "learnMore": "Meer informatie",
+    "visitWebsite": "Bezoek website",
+    "international": "Internationaal"
+  },
+  "newsletter": {
+    "title": "Blijf op de Hoogte",
+    "description": "Abonneer je op onze nieuwsbrief om updates te ontvangen over aankomende evenementen, activiteiten en nieuws uit de Belgische paraklimgemeenschap.",
+    "placeholder": "Jouw e-mailadres",
+    "button": "Abonneren",
+    "subscribing": "Bezig met abonneren...",
+    "success": "Bedankt voor je aanmelding voor onze nieuwsbrief!",
+    "error": "Voer een geldig e-mailadres in",
+    "privacy": "Wij respecteren je privacy. Je kunt je op elk moment uitschrijven."
+  },
+  "cta": {
+    "title": "Word Lid van Onze Gemeenschap",
+    "description": "Of je nu een klimmer bent met een beperking, een familielid, een potentiële vrijwilliger, of iemand die geïnteresseerd is in het ondersteunen van onze missie, we verwelkomen je om lid te worden van onze gemeenschap.",
+    "contactUs": "Neem Contact Op",
+    "support": "Steun Onze Missie"
+  },
+  "sponsors": {
+    "title": "Onze Sponsors",
+    "description": "We zijn dankbaar voor de volgende klimzalen en klimclubs voor hun steun aan paraklimmen in België.",
+    "becomeASponsor": "Word een Sponsor",
+    "sponsorInfo": ""
+  },
+  "activitiesPage": {
+    "title": "Activiteiten & Evenementen",
+    "subtitle": "Doe mee aan onze paraklim-evenementen, wedstrijden, workshops en sociale bijeenkomsten",
+    "filters": {
+      "allEvents": "Alle Evenementen",
+      "international": "Internationaal",
+      "competitions": "Wedstrijden",
+      "workshops": "Workshops",
+      "socialEvents": "Sociale Evenementen",
+      "searchPlaceholder": "Zoek evenementen op titel, beschrijving of locatie"
+    },
+    "noEventsFound": {
+      "title": "Geen evenementen gevonden",
+      "description": "Pas je filters of zoekcriteria aan om evenementen te vinden."
+    },
+    "regularActivities": {
+      "title": "Maandelijkse Trainingssessies",
+      "description": "Naast onze speciale evenementen bieden we regelmatige paraklim-sessies aan bij partner klimzalen in heel België.",
+      "monthlyTraining": {
+        "title": "Maandelijkse Trainingssessies",
+        "locationPrefix": "Verschillende locaties in heel België",
+        "timePrefix": "Data en tijden variëren elke maand",
+        "description": "We organiseren maandelijkse trainingssessies voor paraklimmers van alle niveaus in heel België. Data, tijden en locaties veranderen regelmatig om klimmers uit verschillende regio's tegemoet te komen. Materiaal wordt voorzien en zowel beginners als ervaren klimmers zijn welkom.",
+        "contactUs": "Neem Contact Op",
+        "socialMediaCheck": "Bekijk onze sociale media of",
+        "newsletterSubscribe": "abonneer je op onze nieuwsbrief voor aankomende data"
+      }
+    }
+  },
+  "footer": {
+    "organization": "Paraclimbing.be",
+    "tagline": "Ondersteunen van paraklimmers en het toegankelijk maken van klimmen voor iedereen",
+    "quickLinks": "Snelkoppelingen",
+    "aboutParaclimbing": "Over Paraklimmen",
+    "activitiesEvents": "Activiteiten & Evenementen",
+    "supportUs": "Steun Ons",
+    "contactUs": "Neem Contact Op",
+    "contactInfo": "Contacteer Ons",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "address": "Adres",
+    "copyright": "Alle rechten voorbehouden."
+  },
+  "supportUsPage": {
+    "hero": {
+      "title": "Steun Onze Missie",
+      "subtitle": "Help ons om klimmen toegankelijk te maken voor iedereen in België"
+    },
+    "volunteerSection": {
+      "title": "Word Vrijwilliger",
+      "description": "Je tijd en vaardigheden kunnen een enorm verschil maken voor onze organisatie en de paraklimmers die we ondersteunen."
+    },
+    "volunteerOpportunities": [
+      {
+        "title": "Social Media en Content Manager",
+        "description": "Help onze aanwezigheid op sociale media te beheren en creëer boeiende content om paraklimmen te promoten"
+      },
+      {
+        "title": "Paraklimmer Outreach",
+        "description": "Help ons om potentiële paraklimmers in heel België te bereiken en te verbinden"
+      },
+      {
+        "title": "Lokale Verantwoordelijke",
+        "description": "Wees een lokale vertegenwoordiger in jouw stad om ons netwerk uit te breiden door lokale afdelingen op te zetten in de centrumsteden"
+      },
+      {
+        "title": "Ad Hoc Vrijwilliger",
+        "description": "Word lid van onze groep vrijwilligers die we kunnen contacteren wanneer we hulp nodig hebben bij specifieke taken of evenementen (Vrije rol ad hoc)"
+      }
+    ],
+    "volunteerCTA": {
+      "title": "Klaar om Vrijwilliger te Worden?",
+      "description": "Vul ons vrijwilligersaanvraagformulier in en we nemen contact met je op om te bespreken hoe je betrokken kunt raken.",
+      "buttonText": "Meld je als vrijwilliger"
+    },
+    "whySupportSection": {
+      "title": "Waarom Paraklimmen België Steunen?",
+      "description": "Jouw bijdrage helpt ons om inclusieve klimmogelijkheden te creëren voor mensen met een beperking in heel België."
+    },
+    "contributionUse": {
+      "title": "Hoe Je Bijdrage Zal Worden Gebruikt",
+      "items": [
+        "Om paraklimmen in België te promoten, maken en drukken we promotiemateriaal, verzorgen we social media marketing",
+        "Kliminitiaties organiseren",
+        "Een paraklimgemeenschap opbouwen in België, een groep gelijkgestemde paraklimmers die betere klimmers willen worden. Hen ondersteunen door regelmatige trainingssessies aan te bieden",
+        "Onze vrijwilligers ondersteunen",
+        "De leden van het Belgische team ondersteunen om de financiële last van internationale wedstrijden te beperken"
+      ]
+    },
+    "financialSupport": {
+      "title": "Steun Ons Financieel",
+      "description": "Je financiële steun financiert rechtstreeks onze programma's en helpt ons ons bereik te vergroten."
+    },
+    "bankTransfer": {
+      "title": "Bankoverschrijving",
+      "description": "Maak een directe overschrijving naar onze rekening:",
+      "organization": "Parabel VZW",
+      "iban": "IBAN: BE29 7340 5844 8064",
+      "bic": "BIC: KREDBEBB"
+    },
+    "corporateSponsorship": {
+      "title": "Bedrijfssponsoring",
+      "description": "Is jouw bedrijf geïnteresseerd in het ondersteunen van toegankelijkheid in sport?",
+      "contact": "Neem contact met ons op via",
+      "contactEnd": "om sponsormogelijkheden te bespreken."
+    }
+  },
+  "contactPage": {
+    "title": "Neem Contact Op",
+    "subtitle": "Neem contact op met ons team voor vragen of informatie",
+    "contactInformation": "Contactgegevens",
+    "emailInfo": "Wij streven ernaar om binnen 48 uur op alle vragen te reageren.",
+    "phoneInfo": "Neem telefonisch contact met ons op voor dringende zaken",
+    "officeLocation": "Kantoorlocatie",
+    "byAppointmentOnly": "Alleen op afspraak",
+    "socialMedia": "Sociale Media",
+    "emailUs": "E-mail Ons",
+    "faqTitle": "Veelgestelde Vraag",
+    "faqDescription": "Hier is een belangrijke vraag die we vaak krijgen over onze paraklimprogramma's.",
+    "faqQuestion": "Bieden jullie ook paraklim-sessies aan voor mensen met een verstandelijke beperking of autisme?",
+    "faqAnswer": "Momenteel zijn onze paraklimprogramma's specifiek ontworpen voor mensen met een lichamelijke beperking. Hoewel we altijd streven naar inclusiviteit, zijn onze expertise, middelen en getrainde coaches gespecialiseerd in het ondersteunen van klimmers met verschillende fysieke beperkingen. We kunnen graag andere klimorganisaties aanbevelen die geweldige programma's aanbieden voor mensen met autisme of een verstandelijke beperking als je rechtstreeks contact met ons opneemt!",
+    "moreQuestionsText": "Staat je vraag hier niet bij? Neem gerust rechtstreeks contact met ons op."
+  }
+}

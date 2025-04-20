@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export interface EventProps {
   id: string;
@@ -21,6 +22,7 @@ const EventCard: React.FC<EventProps> = ({
   type,
   externalUrl,
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="card h-full flex flex-col hover:shadow-xl transition-shadow duration-300">
       <div className="h-48 overflow-hidden relative bg-gray-100 flex items-center justify-center">
@@ -31,7 +33,7 @@ const EventCard: React.FC<EventProps> = ({
         />
         {type === 'international' && (
           <div className="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-lg text-sm font-semibold">
-            International
+            {t('events.international')}
           </div>
         )}
       </div>
@@ -77,7 +79,7 @@ const EventCard: React.FC<EventProps> = ({
                   to={externalUrl}
                   className="btn btn-primary flex items-center"
                 >
-                  Learn More
+                  {t('events.learnMore')}
                 </Link>
               ) : (
                 // External link
@@ -87,7 +89,7 @@ const EventCard: React.FC<EventProps> = ({
                   rel="noopener noreferrer" 
                   className="btn btn-primary flex items-center"
                 >
-                  Visit Website
+                  {t('events.visitWebsite')}
                   <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -95,7 +97,7 @@ const EventCard: React.FC<EventProps> = ({
               )
             ) : (
               <button className="btn btn-primary">
-                Learn More
+                {t('events.learnMore')}
               </button>
             )}
           </div>

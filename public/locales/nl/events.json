@@ -1,0 +1,95 @@
+{
+  "events": [
+    {
+      "id": "intl1",
+      "title": "Open Oostenrijks Paraclimbing Kampioenschap",
+      "date": "12 april 2025",
+      "location": "Wenen, Oostenrijk",
+      "description": "Internationale Master / Open Wedstrijd met categorieën: AL, AU, B, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "workshop1",
+      "title": "Paraclimbing Workshop op REVA Beurs 2025",
+      "date": "24-26 april 2025",
+      "location": "Flanders Expo, Maaltekouter 1, 9051 Gent",
+      "description": "Doe mee aan onze paraclimbing initiatie op REVA, de informatiebeurs voor mensen met een beperking. Dagelijks van 9:30 tot 17:00. Gratis toegang.",
+      "imageUrl": "/assets/reva.png",
+      "type": "workshops",
+      "externalUrl": "https://reva.be/"
+    },
+    {
+      "id": "intl2",
+      "title": "Duitse Paraclimbing Cup – Karlsruhe",
+      "date": "17 mei 2025",
+      "location": "Karlsruhe, Duitsland",
+      "description": "Nationale Wedstrijd met categorieën: AL, AU, B, IN, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "intl3",
+      "title": "IFSC Paraclimbing Wereldbeker Salt Lake City",
+      "date": "20-21 mei 2025",
+      "location": "Salt Lake City, VS",
+      "description": "IFSC Wereldbeker met categorieën: AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "intl4",
+      "title": "IFSC Paraclimbing Wereldbeker Innsbruck",
+      "date": "23-24 juni 2025",
+      "location": "Innsbruck, Oostenrijk",
+      "description": "IFSC Wereldbeker met categorieën: AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "intl5",
+      "title": "Duitse Nationale Paraclimbing Kampioenschappen",
+      "date": "5-6 juli 2025",
+      "location": "Augsburg, Duitsland",
+      "description": "Internationale Master / Open Wedstrijd met categorieën: AL, AU, B, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "intl6",
+      "title": "SAC Paraclimbing Cup - Bulle",
+      "date": "12 juli 2025",
+      "location": "Bulle, Zwitserland",
+      "description": "Internationale Master / Open Wedstrijd met categorieën: AL, AU, B, Open, RP",
+      "imageUrl": "/assets/podium.png",
+      "type": "international"
+    },
+    {
+      "id": "intl7",
+      "title": "IFSC Paraclimbing Wereldkampioenschappen Seoul",
+      "date": "20-25 september 2025",
+      "location": "Seoul, Zuid-Korea",
+      "description": "IFSC Wereldkampioenschappen met categorieën: AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "intl8",
+      "title": "IFSC Paraclimbing Wereldbeker Laval",
+      "date": "24-26 oktober 2025",
+      "location": "Laval, Frankrijk",
+      "description": "IFSC Wereldbeker met categorieën: AL, AU, B, RP",
+      "imageUrl": "/assets/ifsc.png",
+      "type": "international"
+    },
+    {
+      "id": "event9",
+      "title": "Eindejaarviering",
+      "date": "18 december 2025",
+      "location": "Brussels Event Hall",
+      "description": "Eindejaarviering voor alle vrijwilligers, sponsors en paraclimbers. Doe mee om de prestaties van de Belgische paraclimbing gemeenschap te vieren.",
+      "imageUrl": "/assets/events/year-end.jpg",
+      "type": "social"
+    }
+  ]
+}

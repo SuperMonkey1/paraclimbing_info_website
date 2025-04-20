@@ -1,20 +1,22 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import { useTranslation } from 'react-i18next';
 
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation();
   const faqItems = [
     {
-      question: "Do you also offer paraclimbing sessions for people with mental disabilities or autism?",
-      answer: "Currently, our paraclimbing programs are specifically designed for people with physical disabilities. While we're always striving to be inclusive, our expertise, resources, and trained coaches are specialized in supporting climbers with various physical disabilities. We'd be happy to recommend other climbing organizations that offer wonderful programs for people with autism or mental disabilities if you reach out to us directly!"
+      question: t('contactPage.faqQuestion'),
+      answer: t('contactPage.faqAnswer')
     }
   ];
 
   return (
     <div>
       <Hero
-        title="Contact Us"
-        subtitle="Get in touch with our team for any questions or inquiries"
+        title={t('contactPage.title')}
+        subtitle={t('contactPage.subtitle')}
         backgroundImage="/assets/belgium.jpg"
       />
       
@@ -22,7 +24,7 @@ const ContactPage: React.FC = () => {
       <section className="section bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-dark mb-6 text-center">Contact Information</h2>
+            <h2 className="text-3xl font-bold text-dark mb-6 text-center">{t('contactPage.contactInformation')}</h2>
             
             <div className="bg-gray-50 rounded-lg p-8 shadow-md">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -33,10 +35,10 @@ const ContactPage: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-dark">Email</h3>
+                    <h3 className="text-lg font-semibold text-dark">{t('footer.email')}</h3>
                     <p className="text-gray-700">info@paraclimbing.be</p>
                     <p className="text-sm text-gray-600 mt-1">
-                      We aim to respond to all inquiries within 48 hours.
+                      {t('contactPage.emailInfo')}
                     </p>
                   </div>
                 </div>
@@ -48,10 +50,10 @@ const ContactPage: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-dark">Phone</h3>
+                    <h3 className="text-lg font-semibold text-dark">{t('footer.phone')}</h3>
                     <p className="text-gray-700">0489410092</p>
                     <p className="text-sm text-gray-600 mt-1">
-                      Please contact us via phone for urgent matters
+                      {t('contactPage.phoneInfo')}
                     </p>
                   </div>
                 </div>
@@ -64,14 +66,14 @@ const ContactPage: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-dark">Office Location</h3>
+                    <h3 className="text-lg font-semibold text-dark">{t('contactPage.officeLocation')}</h3>
                     <p className="text-gray-700">
                       Parabel VZW<br />
                       Valkerijgang 32<br />
                       3000 Leuven, Belgium
                     </p>
                     <p className="text-sm text-gray-600 mt-1">
-                      By appointment only
+                      {t('contactPage.byAppointmentOnly')}
                     </p>
                   </div>
                 </div>
@@ -83,7 +85,7 @@ const ContactPage: React.FC = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-dark">Social Media</h3>
+                    <h3 className="text-lg font-semibold text-dark">{t('contactPage.socialMedia')}</h3>
                     <div className="flex items-center mt-2">
                       <a href="https://www.instagram.com/paraclimbing.team.belgium" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary">
                         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -98,7 +100,7 @@ const ContactPage: React.FC = () => {
               
               <div className="mt-8 text-center">
                 <a href="mailto:info@paraclimbing.be" className="btn btn-primary">
-                  Email Us
+                  {t('contactPage.emailUs')}
                 </a>
               </div>
             </div>
@@ -111,9 +113,9 @@ const ContactPage: React.FC = () => {
       <section className="section bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-dark mb-6 text-center">Frequently Asked Question</h2>
+            <h2 className="text-3xl font-bold text-dark mb-6 text-center">{t('contactPage.faqTitle')}</h2>
             <p className="text-gray-700 mb-12 text-center">
-              Here's an important question we often receive about our paraclimbing programs.
+              {t('contactPage.faqDescription')}
             </p>
             
             <div className="space-y-6">
@@ -127,10 +129,10 @@ const ContactPage: React.FC = () => {
             
             <div className="mt-12 text-center">
               <p className="text-gray-700 mb-4">
-                Don't see your question answered here? Feel free to reach out to us directly.
+                {t('contactPage.moreQuestionsText')}
               </p>
               <a href="mailto:info@paraclimbing.be" className="btn btn-primary">
-                Email Us
+                {t('contactPage.emailUs')}
               </a>
             </div>
           </div>

@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Navbar: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setIsMenuOpen(false); // Close mobile menu on language change
+  };
+
+  const currentLanguage = i18n.language;
 
 
   
@@ -28,20 +37,34 @@ const Navbar: React.FC = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-dark hover:text-primary transition-colors">
-              Home
+              {t('navbar.home')}
             </Link>
             <Link to="/paraclimbing" className="text-dark hover:text-primary transition-colors">
-              What is Paraclimbing?
+              {t('navbar.paraclimbing')}
             </Link>
             <Link to="/activities" className="text-dark hover:text-primary transition-colors">
-              Activities
+              {t('navbar.activities')}
             </Link>
             <Link to="/support-us" className="text-dark hover:text-primary transition-colors">
-              Support Us
+              {t('navbar.support')}
             </Link>
             <Link to="/contact" className="text-dark hover:text-primary transition-colors">
-              Contact
+              {t('navbar.contact')}
             </Link>
+            
+            {/* Language Selector - Desktop */}
+            <div className="relative">
+              <select
+                value={currentLanguage}
+                onChange={(e) => changeLanguage(e.target.value)}
+                className="bg-gray-100 border border-gray-300 text-dark text-sm rounded-lg focus:ring-primary focus:border-primary p-2"
+                aria-label="Select language"
+              >
+                <option value="en">{t('languages.en')}</option>
+                <option value="nl">{t('languages.nl')}</option>
+                <option value="fr">{t('languages.fr')}</option>
+              </select>
+            </div>
           </div>
           
           {/* Mobile Menu Button */}
@@ -63,20 +86,34 @@ const Navbar: React.FC = () => {
           <div className="md:hidden py-4">
             <div className="flex flex-col space-y-4">
               <Link to="/" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
-                Home
+                {t('navbar.home')}
               </Link>
               <Link to="/paraclimbing" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
-                What is Paraclimbing?
+                {t('navbar.paraclimbing')}
               </Link>
               <Link to="/activities" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
-                Activities
+                {t('navbar.activities')}
               </Link>
               <Link to="/support-us" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
-                Support Us
+                {t('navbar.support')}
               </Link>
               <Link to="/contact" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
-                Contact
+                {t('navbar.contact')}
               </Link>
+              
+              {/* Language Selector - Mobile */}
+              <div className="px-4 py-2">
+                <select
+                  value={currentLanguage}
+                  onChange={(e) => changeLanguage(e.target.value)}
+                  className="w-full bg-gray-100 border border-gray-300 text-dark text-sm rounded-lg focus:ring-primary focus:border-primary p-2"
+                  aria-label="Select language"
+                >
+                  <option value="en">{t('languages.en')}</option>
+                  <option value="nl">{t('languages.nl')}</option>
+                  <option value="fr">{t('languages.fr')}</option>
+                </select>
+              </div>
             </div>
           </div>
         )}

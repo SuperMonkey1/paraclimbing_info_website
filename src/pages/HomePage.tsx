@@ -4,8 +4,10 @@ import EventCard, { EventProps } from '../components/EventCard';
 import { Link } from 'react-router-dom';
 import { allEvents } from '../data/events';
 import NewsletterSubscriptionForm from '../components/NewsletterSubscriptionForm';
+import { useTranslation } from 'react-i18next';
 
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
   // Create the featured events list with prioritization rules
   const featuredEvents = useMemo(() => {
     const currentDate = new Date();
@@ -17,10 +19,10 @@ const HomePage: React.FC = () => {
     // 1. Always add the monthly training session
     const monthlyTraining = {
       id: 'monthly-training',
-      title: 'Monthly Training Sessions',
-      date: 'Dates vary each month',
-      location: 'Various locations across Belgium',
-      description: 'We organize monthly training sessions for paraclimbers of all abilities across Belgium. Equipment is provided, and both beginners and experienced climbers are welcome.',
+      title: t('events.monthlyTraining.title'),
+      date: t('events.monthlyTraining.date'),
+      location: t('events.monthlyTraining.location'),
+      description: t('events.monthlyTraining.description'),
       imageUrl: '/assets/monthly.jpg',
       type: 'workshops',
       externalUrl: '/activities#monthly-training' // Link to the activities page's monthly training section
@@ -72,9 +74,9 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <Hero
-        title="Paraclimbing Belgium"
-        subtitle="Promoting inclusive climbing experiences for people of all abilities"
-        ctaText="Subscribe to Newsletter"
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        ctaText={t('hero.ctaText')}
         ctaLink="#newsletter"
       />
       
@@ -90,19 +92,15 @@ const HomePage: React.FC = () => {
               />
             </div>
             <div className="md:w-1/2">
-              <h2 className="text-3xl font-bold text-dark mb-4">About Paraclimbing Belgium</h2>
+              <h2 className="text-3xl font-bold text-dark mb-4">{t('about.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Paraclimbing Belgium is dedicated to making climbing accessible for people with disabilities. 
-                We believe that everyone should have the opportunity to experience the joy and challenge of climbing, 
-                regardless of physical abilities.
+                {t('about.paragraph1')}
               </p>
               <p className="text-gray-700 mb-6">
-                Through our programs, events, and advocacy, we aim to create an inclusive climbing community 
-                in Belgium that welcomes climbers of all abilities and provides them with the support and 
-                resources they need to thrive.
+                {t('about.paragraph2')}
               </p>
               <Link to="/paraclimbing" className="btn btn-primary">
-                Learn More
+                {t('about.learnMore')}
               </Link>
             </div>
           </div>
@@ -113,10 +111,9 @@ const HomePage: React.FC = () => {
       <section className="section bg-white">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-dark mb-4">Upcoming Events</h2>
+            <h2 className="text-3xl font-bold text-dark mb-4">{t('events.title')}</h2>
             <p className="text-gray-700 max-w-3xl mx-auto">
-              Join us at one of our upcoming events to experience paraclimbing firsthand, 
-              meet our community, and discover the possibilities of adaptive climbing.
+              {t('events.description')}
             </p>
           </div>
           
@@ -128,7 +125,7 @@ const HomePage: React.FC = () => {
           
           <div className="text-center mt-10">
             <Link to="/activities" className="btn btn-primary">
-              View All Events
+              {t('events.viewAll')}
             </Link>
           </div>
         </div>
@@ -145,17 +142,16 @@ const HomePage: React.FC = () => {
       {/* Call to Action */}
       <section className="section bg-secondary text-white text-center">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-4">Join Our Community</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('cta.title')}</h2>
           <p className="max-w-2xl mx-auto mb-8">
-            Whether you're a climber with a disability, a family member, a potential volunteer, 
-            or someone interested in supporting our mission, we welcome you to join our community.
+            {t('cta.description')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact" className="btn bg-white text-secondary hover:bg-gray-100">
-              Contact Us
+              {t('cta.contactUs')}
             </Link>
             <Link to="/support-us" className="btn bg-primary text-white hover:bg-red-800">
-              Support Our Mission
+              {t('cta.support')}
             </Link>
           </div>
         </div>
@@ -165,9 +161,9 @@ const HomePage: React.FC = () => {
       <section className="section bg-white">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-dark mb-4">Our Sponsors</h2>
+            <h2 className="text-3xl font-bold text-dark mb-4">{t('sponsors.title')}</h2>
             <p className="text-gray-700 max-w-3xl mx-auto">
-              We're grateful to the following companies and organizations for their support of paraclimbing in Belgium.
+              {t('sponsors.description')}
             </p>
           </div>
           
@@ -209,11 +205,10 @@ const HomePage: React.FC = () => {
           
           <div className="text-center">
             <p className="text-gray-700 mb-6">
-              Interested in becoming a sponsor? We offer various sponsorship packages with benefits including 
-              logo placement, social media recognition, and more.
+              {t('sponsors.sponsorInfo')}
             </p>
             <Link to="/support-us" className="btn btn-primary">
-              Become a Sponsor
+              {t('sponsors.becomeASponsor')}
             </Link>
           </div>
         </div>

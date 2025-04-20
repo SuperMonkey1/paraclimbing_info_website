@@ -1,6 +1,9 @@
 import { EventProps } from '../components/EventCard';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
-export const allEvents: EventProps[] = [
+// Original event data, used as the default export and for fallback
+const defaultEvents: EventProps[] = [
   {
     id: 'intl1',
     title: 'Open Austrian Paraclimbing Championship',
@@ -93,3 +96,25 @@ export const allEvents: EventProps[] = [
     type: 'social'
   },
 ];
+
+// Export the default events as the main export
+export const allEvents: EventProps[] = defaultEvents;
+
+// Create a React hook for getting localized events
+export function useLocalizedEvents(): EventProps[] {
+  const { t, i18n, ready } = useTranslation('events');
+  
+  // If translations are not yet loaded, return default events
+  if (!ready) {
+    return defaultEvents;
+  }
+  
+  try {
+    // Get events from the i18n namespace
+    const eventsData = i18n.getResourceBundle(i18n.language, 'events');
+    return eventsData?.events || defaultEvents;
+  } catch (error) {
+    console.error('Error loading localized events:', error);
+    return defaultEvents;
+  }
+}

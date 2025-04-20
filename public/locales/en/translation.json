@@ -1,0 +1,184 @@
+{
+  "navbar": {
+    "home": "Home",
+    "paraclimbing": "What is Paraclimbing?",
+    "activities": "Activities",
+    "support": "Support Us",
+    "contact": "Contact"
+  },
+  "languages": {
+    "en": "English",
+    "nl": "Nederlands",
+    "fr": "Français"
+  },
+  "hero": {
+    "title": "Paraclimbing Belgium",
+    "subtitle": "Promoting inclusive climbing experiences for people of all abilities",
+    "ctaText": "Subscribe to Newsletter"
+  },
+  "about": {
+    "title": "About Paraclimbing.be",
+    "paragraph1": "Paraclimbing Belgium is dedicated to making climbing accessible for people with disabilities. We believe that everyone should have the opportunity to experience the joy and challenge of climbing, regardless of physical abilities.",
+    "paragraph2": "Through our programs, events, and advocacy, we aim to create an inclusive climbing community in Belgium that welcomes climbers of all abilities and provides them with the support and resources they need to thrive.",
+    "learnMore": "Learn More"
+  },
+  "events": {
+    "title": "Upcoming Events",
+    "description": "Join us at one of our upcoming events to experience paraclimbing firsthand, meet our community, and discover the possibilities of adaptive climbing.",
+    "monthlyTraining": {
+      "title": "Monthly Training Sessions",
+      "date": "Dates vary each month",
+      "location": "Various locations across Belgium",
+      "description": "We organize monthly training sessions for paraclimbers of all abilities across Belgium. Equipment is provided, and both beginners and experienced climbers are welcome."
+    },
+    "viewAll": "View All Events",
+    "learnMore": "Learn More",
+    "visitWebsite": "Visit Website",
+    "international": "International"
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "description": "Subscribe to our newsletter to receive updates on upcoming events, activities, and news from the Belgian paraclimbing community.",
+    "placeholder": "Your email address",
+    "button": "Subscribe",
+    "subscribing": "Subscribing...",
+    "success": "Thank you for subscribing to our newsletter!",
+    "error": "Please enter a valid email address",
+    "privacy": "We respect your privacy. Unsubscribe at any time."
+  },
+  "cta": {
+    "title": "Join Our Community",
+    "description": "Whether you're a climber with a disability, a family member, a potential volunteer, or someone interested in supporting our mission, we welcome you to join our community.",
+    "contactUs": "Contact Us",
+    "support": "Support Our Mission"
+  },
+  "sponsors": {
+    "title": "Our Sponsors",
+    "description": "We're grateful to the following companies and organizations for their support of paraclimbing in Belgium.",
+    "becomeASponsor": "Become a Sponsor",
+    "sponsorInfo": "Interested in becoming a sponsor? We offer various sponsorship packages with benefits including logo placement, social media recognition, and more."
+  },
+  "activitiesPage": {
+    "title": "Activities & Events",
+    "subtitle": "Join us for paraclimbing events, competitions, workshops, and social gatherings",
+    "filters": {
+      "allEvents": "All Events",
+      "international": "International",
+      "competitions": "Competitions",
+      "workshops": "Workshops",
+      "socialEvents": "Social Events",
+      "searchPlaceholder": "Search events by title, description, or location"
+    },
+    "noEventsFound": {
+      "title": "No events found",
+      "description": "Try adjusting your filters or search criteria to find events."
+    },
+    "regularActivities": {
+      "title": "Regular Activities",
+      "description": "Beyond our special events, we offer regular paraclimbing sessions at partner climbing gyms throughout Belgium.",
+      "monthlyTraining": {
+        "title": "Monthly Training Sessions",
+        "locationPrefix": "Various locations across Belgium",
+        "timePrefix": "Dates and times vary each month",
+        "description": "We organize monthly training sessions for paraclimbers of all abilities across Belgium. Dates, times, and locations change regularly to accommodate climbers from different regions. Equipment is provided, and both beginners and experienced climbers are welcome.",
+        "contactUs": "Contact Us",
+        "socialMediaCheck": "Check our social media or",
+        "newsletterSubscribe": "subscribe to our newsletter for upcoming dates"
+      }
+    }
+  },
+  "footer": {
+    "organization": "Paraclimbing.be",
+    "tagline": "Promoting inclusive climbing experiences for people of all abilities in Belgium.",
+    "quickLinks": "Quick Links",
+    "aboutParaclimbing": "About Paraclimbing",
+    "activitiesEvents": "Activities & Events",
+    "supportUs": "Support Us",
+    "contactUs": "Contact Us",
+    "contactInfo": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "copyright": "All rights reserved."
+  },
+  "supportUsPage": {
+    "hero": {
+      "title": "Support Our Mission",
+      "subtitle": "Help us make climbing accessible for everyone in Belgium"
+    },
+    "volunteerSection": {
+      "title": "Volunteer With Us",
+      "description": "Your time and skills can make a huge difference to our organization and the paraclimbers we support."
+    },
+    "volunteerOpportunities": [
+      {
+        "title": "Social Media and Content Manager",
+        "description": "Help manage our social media presence and create engaging content to promote paraclimbing"
+      },
+      {
+        "title": "Paraclimber Outreach",
+        "description": "Help us reach and connect with potential paraclimbers across Belgium"
+      },
+      {
+        "title": "Local Responsible",
+        "description": "Be a local representative in your city to help extend our network by establishing local branches in the 'centrumsteden'"
+      },
+      {
+        "title": "Ad Hoc Volunteer",
+        "description": "Join our group of volunteers we can contact when we need help with specific tasks or events (Vrije rol ad hoc)"
+      }
+    ],
+    "volunteerCTA": {
+      "title": "Ready to Volunteer?",
+      "description": "Fill out our volunteer application form and we'll contact you to discuss how you can get involved.",
+      "buttonText": "Apply to Volunteer"
+    },
+    "whySupportSection": {
+      "title": "Why Support Paraclimbing Belgium?",
+      "description": "Your contribution helps us create inclusive climbing opportunities for people with disabilities across Belgium."
+    },
+    "contributionUse": {
+      "title": "How Your Contribution Will Be Used",
+      "items": [
+        "To promote paraclimbing in Belgium, we make and print promotion material, social media marketing",
+        "Organise climbing initiations",
+        "Build a paraclimbing community in Belgium, a group of like minded paraclimbers that want to become better climbers. Support them by supplying frequent training sessions",
+        "Support our volunteers",
+        "Support the members of the Belgian team to limit the financial burden of international competitions"
+      ]
+    },
+    "financialSupport": {
+      "title": "Support Us Financially",
+      "description": "Your financial support directly funds our programs and helps us expand our reach."
+    },
+    "bankTransfer": {
+      "title": "Bank Transfer",
+      "description": "Make a direct transfer to our account:",
+      "organization": "Parabel VZW",
+      "iban": "IBAN: BE29 7340 5844 8064",
+      "bic": "BIC: KREDBEBB"
+    },
+    "corporateSponsorship": {
+      "title": "Corporate Sponsorship",
+      "description": "Is your company interested in supporting accessibility in sports?",
+      "contact": "Contact us at",
+      "contactEnd": "to discuss sponsorship opportunities."
+    }
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team for any questions or inquiries",
+    "contactInformation": "Contact Information",
+    "emailInfo": "We aim to respond to all inquiries within 48 hours.",
+    "phoneInfo": "Please contact us via phone for urgent matters",
+    "officeLocation": "Office Location",
+    "byAppointmentOnly": "By appointment only",
+    "socialMedia": "Social Media",
+    "emailUs": "Email Us",
+    "faqTitle": "Frequently Asked Question",
+    "faqDescription": "Here's an important question we often receive about our paraclimbing programs.",
+    "faqQuestion": "Do you also offer paraclimbing sessions for people with mental disabilities or autism?",
+    "faqAnswer": "Currently, our paraclimbing programs are specifically designed for people with physical disabilities. While we're always striving to be inclusive, our expertise, resources, and trained coaches are specialized in supporting climbers with various physical disabilities. We'd be happy to recommend other climbing organizations that offer wonderful programs for people with autism or mental disabilities if you reach out to us directly!",
+    "moreQuestionsText": "Don't see your question answered here? Feel free to reach out to us directly."
+  }
+}

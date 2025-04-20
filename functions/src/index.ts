@@ -12,8 +12,11 @@ import * as admin from "firebase-admin";
 import * as logger from "firebase-functions/logger";
 
 // Import email templates and service
-import {subscriptionConfirmationEmail} from "./utils/email-templates";
+import {subscriptionConfirmationEmail, adminNotificationEmail} from "./utils/email-templates";
 import {sendEmail} from "./utils/email-service";
+
+// Admin email address for notifications
+const ADMIN_EMAIL = "frederik.leys@gmail.com";
 
 // Initialize Firebase Admin SDK
 admin.initializeApp();
@@ -48,13 +51,20 @@ export const sendConfirmationEmail = onDocumentCreated(
     }
 
     try {
-      // Send confirmation email using the email service
+      // Send confirmation email to the subscriber
       await sendEmail(
         email,
         subscriptionConfirmationEmail.subject,
         subscriptionConfirmationEmail.generateHtml()
       );
-      logger.info(`Confirmation email sent to ${email}`);
+      logger.info(`Confirmation email sent to subscriber: ${email}`);
+      // Send notification email to the admin
+      await sendEmail(
+        ADMIN_EMAIL,
+        adminNotificationEmail.subject,
+        adminNotificationEmail.generateHtml(email)
+      );
+      logger.info(`Admin notification email sent to: ${ADMIN_EMAIL}`);
 
       // Update the document to record that the confirmation email was sent
       await admin.firestore()
@@ -63,6 +73,8 @@ export const sendConfirmationEmail = onDocumentCreated(
         .update({
           confirmationEmailSent: true,
           confirmationEmailSentAt: admin.firestore.FieldValue.serverTimestamp(),
+          adminNotificationSent: true,
+          adminNotificationSentAt: admin.firestore.FieldValue.serverTimestamp(),
         });
 
       return {success: true};
