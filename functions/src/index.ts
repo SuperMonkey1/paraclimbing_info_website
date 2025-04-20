@@ -4,7 +4,6 @@
 
 // Load environment variables from .env file
 import * as dotenv from "dotenv";
-import * as nodemailer from "nodemailer";
 dotenv.config();
 
 import {onDocumentCreated} from "firebase-functions/v2/firestore";
@@ -12,23 +11,19 @@ import * as admin from "firebase-admin";
 
 import * as logger from "firebase-functions/logger";
 
+// Import email templates and service
+import {subscriptionConfirmationEmail} from "./utils/email-templates";
+import {sendEmail} from "./utils/email-service";
+
 // Initialize Firebase Admin SDK
 admin.initializeApp();
 
-// Configure nodemailer with your Gmail account
 // NOTE: For Gmail, you'll need to create an 'App Password' in your Google Account
 // settings if you have 2-factor authentication enabled
 
 // Using environment variables for email configuration
 // Set these using Firebase CLI: firebase functions:config:set
 // gmail.user="youremail@gmail.com" gmail.pass="yourapppassword"
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
-  },
-});
 
 /**
  * Cloud Function that triggers when a new document is created in the 'contacts' collection
@@ -53,44 +48,12 @@ export const sendConfirmationEmail = onDocumentCreated(
     }
 
     try {
-      // Define email options
-      const mailOptions = {
-        from: `${process.env.FROM_NAME || "Belgian Paraclimbing"} <${process.env.GMAIL_USER}>`,
-        to: email,
-        subject: "Thanks for subscribing to Belgian Paraclimbing updates",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <div style="background-color: #3498db; color: white; padding: 20px; text-align: center;">
-              <h1>Welcome to Belgian Paraclimbing!</h1>
-            </div>
-            <div style="padding: 20px; background-color: #f9f9f9;">
-              <p>Hello,</p>
-              <p>
-                Thank you for subscribing to the Belgian Paraclimbing newsletter!
-              </p>
-              <p>
-                We'll keep you updated with the latest news, events, and opportunities in the Belgian
-                paraclimbing community.
-              </p>
-              <p>If you have any questions, feel free to reply to this email.</p>
-              <p>Best regards,<br>The Belgian Paraclimbing Team</p>
-            </div>
-            <div
-              style="background-color: #34495e; color: white; padding: 15px; text-align: center; font-size: 12px;"
-            >
-              <p>
-                &copy; ${new Date().getFullYear()} Belgian Paraclimbing. All rights reserved.
-              </p>
-              <p>
-                If you wish to unsubscribe, please <a href="#" style="color: #3498db;">click here</a>.
-              </p>
-            </div>
-          </div>
-        `,
-      };
-
-      // Send the email
-      await transporter.sendMail(mailOptions);
+      // Send confirmation email using the email service
+      await sendEmail(
+        email,
+        subscriptionConfirmationEmail.subject,
+        subscriptionConfirmationEmail.generateHtml()
+      );
       logger.info(`Confirmation email sent to ${email}`);
 
       // Update the document to record that the confirmation email was sent
