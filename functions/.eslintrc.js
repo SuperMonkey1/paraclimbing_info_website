@@ -20,6 +20,7 @@ module.exports = {
   ignorePatterns: [
     "/lib/**/*", // Ignore built files.
     "/generated/**/*", // Ignore generated files.
+    "build.js", // Ignore build script
   ],
   plugins: [
     "@typescript-eslint",
@@ -29,5 +30,23 @@ module.exports = {
     "quotes": ["error", "double"],
     "import/no-unresolved": 0,
     "indent": ["error", 2],
+    "object-curly-spacing": ["error", "never"],
+    "max-len": ["error", {
+      "code": 100,
+      "tabWidth": 2,
+      "ignoreUrls": true,
+      "ignoreTemplateLiterals": true,
+    }],
   },
+  overrides: [
+    {
+      files: ["*.js"],
+      parser: "espree",
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module",
+        project: null,
+      },
+    },
+  ],
 };

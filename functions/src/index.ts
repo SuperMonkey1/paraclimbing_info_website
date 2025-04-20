@@ -4,11 +4,12 @@
 
 // Load environment variables from .env file
 import * as dotenv from "dotenv";
+import * as nodemailer from "nodemailer";
 dotenv.config();
 
-import { onDocumentCreated } from "firebase-functions/v2/firestore";
+import {onDocumentCreated} from "firebase-functions/v2/firestore";
 import * as admin from "firebase-admin";
-import * as nodemailer from "nodemailer";
+
 import * as logger from "firebase-functions/logger";
 
 // Initialize Firebase Admin SDK
@@ -19,13 +20,14 @@ admin.initializeApp();
 // settings if you have 2-factor authentication enabled
 
 // Using environment variables for email configuration
-// Set these using Firebase CLI: firebase functions:config:set gmail.user="youremail@gmail.com" gmail.pass="yourapppassword"
+// Set these using Firebase CLI: firebase functions:config:set
+// gmail.user="youremail@gmail.com" gmail.pass="yourapppassword"
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
-  }
+    pass: process.env.GMAIL_PASS,
+  },
 });
 
 /**
@@ -53,7 +55,7 @@ export const sendConfirmationEmail = onDocumentCreated(
     try {
       // Define email options
       const mailOptions = {
-        from: `${process.env.FROM_NAME || 'Belgian Paraclimbing'} <${process.env.GMAIL_USER}>`,
+        from: `${process.env.FROM_NAME || "Belgian Paraclimbing"} <${process.env.GMAIL_USER}>`,
         to: email,
         subject: "Thank you for subscribing to Belgian Paraclimbing updates",
         html: `
@@ -63,17 +65,28 @@ export const sendConfirmationEmail = onDocumentCreated(
             </div>
             <div style="padding: 20px; background-color: #f9f9f9;">
               <p>Hello,</p>
-              <p>Thank you for subscribing to the Belgian Paraclimbing newsletter!</p>
-              <p>We'll keep you updated with the latest news, events, and opportunities in the Belgian paraclimbing community.</p>
+              <p>
+                Thank you for subscribing to the Belgian Paraclimbing newsletter!
+              </p>
+              <p>
+                We'll keep you updated with the latest news, events, and opportunities in the Belgian
+                paraclimbing community.
+              </p>
               <p>If you have any questions, feel free to reply to this email.</p>
               <p>Best regards,<br>The Belgian Paraclimbing Team</p>
             </div>
-            <div style="background-color: #34495e; color: white; padding: 15px; text-align: center; font-size: 12px;">
-              <p>&copy; ${new Date().getFullYear()} Belgian Paraclimbing. All rights reserved.</p>
-              <p>If you wish to unsubscribe, please <a href="#" style="color: #3498db;">click here</a>.</p>
+            <div
+              style="background-color: #34495e; color: white; padding: 15px; text-align: center; font-size: 12px;"
+            >
+              <p>
+                &copy; ${new Date().getFullYear()} Belgian Paraclimbing. All rights reserved.
+              </p>
+              <p>
+                If you wish to unsubscribe, please <a href="#" style="color: #3498db;">click here</a>.
+              </p>
             </div>
           </div>
-        `
+        `,
       };
 
       // Send the email
@@ -86,13 +99,14 @@ export const sendConfirmationEmail = onDocumentCreated(
         .doc(snapshot.id)
         .update({
           confirmationEmailSent: true,
-          confirmationEmailSentAt: admin.firestore.FieldValue.serverTimestamp()
+          confirmationEmailSentAt: admin.firestore.FieldValue.serverTimestamp(),
         });
 
-      return { success: true };
+      return {success: true};
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
       logger.error("Error sending confirmation email:", error);
-      return { error: error.message };
+      return {error: errorMessage};
     }
   }
 );
