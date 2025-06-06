@@ -2,8 +2,8 @@
   "navbar": {
     "home": "Accueil",
     "paraclimbing": "Qu'est-ce que le Paraclimbing?",
-    "activities": "Activités",
-    "support": "Soutenez-nous",
+    "activities": "Événements",
+    "support": "Partenaires",
     "contact": "Contact"
   },
   "languages": {
@@ -12,14 +12,14 @@
     "fr": "Français"
   },
   "hero": {
-    "title": "Paraclimbing Belgique",
-    "subtitle": "Promouvoir des expériences d'escalade inclusives pour des personnes de toutes capacités",
+    "title": "Paraclimbing.info",
+    "subtitle": "Promouvoir le paraclimbing et soutenir les paragrimpeurs",
     "ctaText": "S'abonner à la newsletter"
   },
   "about": {
-    "title": "À propos de Paraclimbing Belgique",
-    "paragraph1": "Paraclimbing Belgique se consacre à rendre l'escalade accessible aux personnes en situation de handicap. Nous croyons que chacun devrait avoir l'opportunité d'expérimenter la joie et le défi de l'escalade, indépendamment de ses capacités physiques.",
-    "paragraph2": "À travers nos programmes, événements et actions de sensibilisation, nous visons à créer une communauté d'escalade inclusive en Belgique qui accueille les grimpeurs de toutes capacités et leur fournit le soutien et les ressources dont ils ont besoin pour s'épanouir.",
+    "title": "À propos de Paraclimbing.info",
+    "paragraph1": "Paraclimbing.info est une initiative fondée par un groupe de paragrimpeurs internationaux qui se sont rencontrés lors des Coupes du Monde de Paraclimbing. Unis par une passion partagée, ils visent à sensibiliser et à donner de la visibilité au sport du paraclimbing.",
+    "paragraph2": "Notre plateforme sert de centre d'information—tant pour les paragrimpeurs en devenir que pour la communauté d'escalade en général. Nous nous engageons également à soutenir les athlètes dans leur parcours vers les compétitions internationales, aidant à développer le sport et à partager son esprit unique. Vous voulez soutenir notre mission ? Visitez notre page Partenaires pour apprendre comment vous pouvez vous impliquer.",
     "learnMore": "En savoir plus"
   },
   "events": {
@@ -38,7 +38,7 @@
   },
   "newsletter": {
     "title": "Restez Informé",
-    "description": "Abonnez-vous à notre newsletter pour recevoir des mises à jour sur les événements à venir, les activités et les actualités de la communauté belge de paraclimbing.",
+    "description": "Abonnez-vous à notre newsletter mensuelle gratuite pour recevoir toutes les mises à jour sur les événements à venir, les activités et autres nouvelles concernant le Para climbing",
     "placeholder": "Votre adresse e-mail",
     "button": "S'abonner",
     "subscribing": "Abonnement en cours...",
@@ -59,8 +59,8 @@
     "sponsorInfo": "Intéressé à devenir sponsor? Nous proposons divers forfaits de parrainage avec des avantages incluant le placement de logo, la reconnaissance sur les médias sociaux, et plus encore."
   },
   "activitiesPage": {
-    "title": "Activités & Événements",
-    "subtitle": "Rejoignez-nous pour des événements de paraclimbing, des compétitions, des ateliers et des rassemblements sociaux",
+    "title": "Événements",
+    "subtitle": "Un aperçu de tous les événements à venir",
     "filters": {
       "allEvents": "Tous les Événements",
       "international": "International",

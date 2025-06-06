@@ -31,6 +31,7 @@ module.exports = {
     "import/no-unresolved": 0,
     "indent": ["error", 2],
     "object-curly-spacing": ["error", "never"],
+    "linebreak-style": "off",
     "max-len": ["error", {
       "code": 100,
       "tabWidth": 2,

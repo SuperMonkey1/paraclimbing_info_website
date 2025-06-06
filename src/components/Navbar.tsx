@@ -9,12 +9,7 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    setIsMenuOpen(false); // Close mobile menu on language change
-  };
 
-  const currentLanguage = i18n.language;
 
 
   
@@ -30,7 +25,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={handleMenuItemClick}>
               <img src="/assets/logo.png" alt="Paraclimbing.be Logo" className="h-10 w-auto mr-3" />
-              <span className="font-bold text-xl text-primary">Paraclimbing.be</span>
+              <span className="font-bold text-xl text-primary">Paraclimbing.info</span>
             </Link>
           </div>
           
@@ -51,20 +46,6 @@ const Navbar: React.FC = () => {
             <Link to="/contact" className="text-dark hover:text-primary transition-colors">
               {t('navbar.contact')}
             </Link>
-            
-            {/* Language Selector - Desktop */}
-            <div className="relative">
-              <select
-                value={currentLanguage}
-                onChange={(e) => changeLanguage(e.target.value)}
-                className="bg-gray-100 border border-gray-300 text-dark text-sm rounded-lg focus:ring-primary focus:border-primary p-2"
-                aria-label="Select language"
-              >
-                <option value="en">{t('languages.en')}</option>
-                <option value="nl">{t('languages.nl')}</option>
-                <option value="fr">{t('languages.fr')}</option>
-              </select>
-            </div>
           </div>
           
           {/* Mobile Menu Button */}
@@ -100,20 +81,6 @@ const Navbar: React.FC = () => {
               <Link to="/contact" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 {t('navbar.contact')}
               </Link>
-              
-              {/* Language Selector - Mobile */}
-              <div className="px-4 py-2">
-                <select
-                  value={currentLanguage}
-                  onChange={(e) => changeLanguage(e.target.value)}
-                  className="w-full bg-gray-100 border border-gray-300 text-dark text-sm rounded-lg focus:ring-primary focus:border-primary p-2"
-                  aria-label="Select language"
-                >
-                  <option value="en">{t('languages.en')}</option>
-                  <option value="nl">{t('languages.nl')}</option>
-                  <option value="fr">{t('languages.fr')}</option>
-                </select>
-              </div>
             </div>
           </div>
         )}

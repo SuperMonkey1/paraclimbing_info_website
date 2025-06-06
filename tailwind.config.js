@@ -6,9 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#B91C1C',
-        'secondary': '#1C4AB9',
-        'dark': '#1E293B',
+        'primary': '#348ad2',     // Bright Blue - main action color
+        'secondary': '#d27c34',   // Orange - secondary actions and accents
+        'accent': '#4d784f',      // Forest Green - highlights and nature elements
+        'neutral': '#ddd7d2',     // Light Gray - backgrounds and cards
+        'dark': '#1a4569',        // Deep Navy - text and dark elements
       },
     },
   },

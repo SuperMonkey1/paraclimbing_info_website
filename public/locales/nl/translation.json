@@ -2,8 +2,8 @@
   "navbar": {
     "home": "Home",
     "paraclimbing": "Wat is Paraklimmen?",
-    "activities": "Activiteiten",
-    "support": "Steun Ons",
+    "activities": "Evenementen",
+    "support": "Partners",
     "contact": "Contact"
   },
   "languages": {
@@ -12,14 +12,14 @@
     "fr": "Français"
   },
   "hero": {
-    "title": "Paraclimbing.be",
-    "subtitle": "Wij promoten en ondersteunen paraklimmen in België",
+    "title": "Paraclimbing.info",
+    "subtitle": "Paraklimmen promoten en paraklimmers ondersteunen",
     "ctaText": "Abonneer op nieuwsbrief"
   },
   "about": {
-    "title": "Over Paraklimmen België",
-    "paragraph1": "Paraclimbing.be zet zich in om klimmen toegankelijk te maken voor mensen met een fysiekebeperking. Wij geloven dat iedereen de mogelijkheid moet hebben om de vreugde en uitdaging van het klimmen te ervaren, ongeacht fysieke mogelijkheden.",
-    "paragraph2": "Door middel van promotie, activiteiten en belangenbehartiging streven we ernaar om een inclusieve klimgemeenschap in België te creëren die klimmers van alle niveaus verwelkomt en hen voorziet van de ondersteuning en middelen die ze nodig hebben om te groeien.",
+    "title": "Over Paraclimbing.info",
+    "paragraph1": "Paraclimbing.info is een initiatief opgericht door een groep internationale paraklimmers die elkaar ontmoetten bij de Paraklim Wereldbekers. Verenigd door een gedeelde passie, streven zij ernaar bewustzijn en zichtbaarheid te creëren voor de sport paraklimmen.",
+    "paragraph2": "Ons platform dient als informatiecentrum—zowel voor aspirant-paraklimmers als voor de bredere klimgemeenschap. We zijn ook toegewijd aan het ondersteunen van atleten op hun reis naar internationale competities, en helpen de sport te laten groeien en haar unieke geest te delen. Wil je onze missie steunen? Bezoek onze Partners pagina om te leren hoe je betrokken kunt raken.",
     "learnMore": "Meer informatie"
   },
   "events": {
@@ -38,7 +38,7 @@
   },
   "newsletter": {
     "title": "Blijf op de Hoogte",
-    "description": "Abonneer je op onze nieuwsbrief om updates te ontvangen over aankomende evenementen, activiteiten en nieuws uit de Belgische paraklimgemeenschap.",
+    "description": "Abonneer je op onze gratis maandelijkse nieuwsbrief om alle updates te ontvangen over aankomende evenementen, activiteiten en ander nieuws over Para climbing",
     "placeholder": "Jouw e-mailadres",
     "button": "Abonneren",
     "subscribing": "Bezig met abonneren...",
@@ -59,8 +59,8 @@
     "sponsorInfo": ""
   },
   "activitiesPage": {
-    "title": "Activiteiten & Evenementen",
-    "subtitle": "Doe mee aan onze paraklim-evenementen, wedstrijden, workshops en sociale bijeenkomsten",
+    "title": "Evenementen",
+    "subtitle": "Een overzicht van alle aankomende evenementen",
     "filters": {
       "allEvents": "Alle Evenementen",
       "international": "Internationaal",
