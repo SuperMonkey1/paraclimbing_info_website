@@ -70,35 +70,29 @@ const EventCard: React.FC<EventProps> = ({
           </div>
         </div>
         <p className="text-gray-700 flex-grow mb-4">{description}</p>
-        {type !== 'international' && (
+        {type !== 'international' && externalUrl && (
           <div className="mt-auto self-start">
-            {externalUrl ? (
-              externalUrl.startsWith('/') ? (
-                // Internal link (React Router)
-                <Link 
-                  to={externalUrl}
-                  className="btn btn-primary flex items-center"
-                >
-                  {t('events.learnMore')}
-                </Link>
-              ) : (
-                // External link
-                <a 
-                  href={externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer" 
-                  className="btn btn-primary flex items-center"
-                >
-                  {t('events.visitWebsite')}
-                  <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              )
-            ) : (
-              <button className="btn btn-primary">
+            {externalUrl.startsWith('/') ? (
+              // Internal link (React Router)
+              <Link 
+                to={externalUrl}
+                className="btn btn-primary flex items-center"
+              >
                 {t('events.learnMore')}
-              </button>
+              </Link>
+            ) : (
+              // External link
+              <a 
+                href={externalUrl}
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="btn btn-primary flex items-center"
+              >
+                {t('events.visitWebsite')}
+                <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             )}
           </div>
         )}
