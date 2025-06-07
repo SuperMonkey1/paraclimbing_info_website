@@ -1,44 +1,53 @@
 /**
- * E-mailsjablonen en configuratie voor Belgische Paraclimbing-website
+ * Email templates and configuration for Paraclimbing.info website
  */
 
 /**
- * Configuratie voor bevestigingsmail inschrijving
+ * Configuration for subscription confirmation email
  */
 export const subscriptionConfirmationEmail = {
-  subject: "Bedankt voor je inschrijving bij Paraclimbing.be",
+  subject: "Welcome to the Paraclimbing.info community!",
 
   /**
-   * Genereert de HTML-inhoud voor de bevestigingsmail
-   * @return {string} HTML-string voor de e-mailbody
+   * Generates the HTML content for the confirmation email
+   * @return {string} HTML string for the email body
    */
   generateHtml: () => {
     const currentYear = new Date().getFullYear();
     return `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background-color: #3498db; color: white; padding: 20px; text-align: center;">
-          <h1>Welkom tot de wondere wereld van het Paraklimmen!</h1>
+          <h1>Welcome to the world of Paraclimbing!</h1>
         </div>
         <div style="padding: 20px; background-color: #f9f9f9;">
-          <p>Hallo,</p>
+          <p>Hello,</p>
           <p>
-            Bedankt om je in te schrijven op de nieuwsbrief van Paraclimbing.be!
+            Thank you for subscribing to the Paraclimbing.info newsletter!
           </p>
           <p>
-            We houden je op de hoogte van het laatste nieuws, evenementen en kansen binnen de Belgische
-            paraclimbing-gemeenschap.
+            <strong>About Paraclimbing.info</strong><br>
+            Paraclimbing.info is an initiative founded by a group of international paraclimbers who met at the Paraclimbing World Cups. United by a shared passion, we aim to raise awareness and visibility for the sport of paraclimbing.
           </p>
-          <p>Heb je vragen? Aarzel niet om deze e-mail te beantwoorden.</p>
-          <p>Met sportieve groeten,<br>Fré Leys (voorzitter Paraclimbing.be)</p>
+          <p>
+            Our platform serves as an information hub—both for aspiring paraclimbers and for the broader climbing community. We're also committed to supporting athletes on their journey to international competitions, helping grow the sport and share its unique spirit.
+          </p>
+          <p>
+            We'll keep you updated with the latest news, events, and opportunities within the international paraclimbing community.
+          </p>
+          <p>
+            Want to support our mission? Visit our Partners page to learn how you can get involved.
+          </p>
+          <p>Have questions? Don't hesitate to reply to this email.</p>
+          <p>With sporting regards,<br>The Paraclimbing.info Team</p>
         </div>
         <div
           style="background-color: #34495e; color: white; padding: 15px; text-align: center; font-size: 12px;"
         >
           <p>
-            &copy; ${currentYear} Paraclimbing.be Alle rechten voorbehouden.
+            &copy; ${currentYear} Paraclimbing.info All rights reserved.
           </p>
           <p>
-            Wil je je uitschrijven? <a href="#" style="color: #3498db;">Klik hier</a>.
+            Want to unsubscribe? <a href="#" style="color: #3498db;">Click here</a>.
           </p>
         </div>
       </div>
@@ -50,7 +59,7 @@ export const subscriptionConfirmationEmail = {
  * Configuration for admin notification email when a new subscriber signs up
  */
 export const adminNotificationEmail = {
-  subject: "New subscriber on Paraclimbing.be",
+  subject: "New subscriber on Paraclimbing.info",
 
   /**
    * Generates the HTML content for the admin notification email
@@ -63,12 +72,12 @@ export const adminNotificationEmail = {
     return `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background-color: #34495e; color: white; padding: 20px; text-align: center;">
-          <h1>New Paraclimbing.be Subscriber</h1>
+          <h1>New Paraclimbing.info Subscriber</h1>
         </div>
         <div style="padding: 20px; background-color: #f9f9f9;">
-          <p>Hello Frederik,</p>
+          <p>Hello,</p>
           <p>
-            You have a new subscriber to the Paraclimbing.be newsletter!
+            You have a new subscriber to the Paraclimbing.info newsletter!
           </p>
           <p>
             <strong>Subscriber Email:</strong> ${subscriberEmail}
@@ -77,13 +86,13 @@ export const adminNotificationEmail = {
             <strong>Date:</strong> ${currentDate}<br>
             <strong>Time:</strong> ${currentTime}
           </p>
-          <p>This is an automated notification.</p>
+          <p>This is an automated notification from the Paraclimbing.info platform.</p>
         </div>
         <div
           style="background-color: #3498db; color: white; padding: 15px; text-align: center; font-size: 12px;"
         >
           <p>
-            &copy; ${new Date().getFullYear()} Paraclimbing.be Admin System
+            &copy; ${new Date().getFullYear()} Paraclimbing.info Admin System
           </p>
         </div>
       </div>
@@ -92,10 +101,10 @@ export const adminNotificationEmail = {
 };
 
 /**
- * Maakt een aangepast e-mailsjabloon
- * @param {string} subject Onderwerp van de e-mail
- * @param {Function} contentGenerator Functie die HTML-inhoud retourneert
- * @return {Object} E-mailsjabloon object
+ * Creates a custom email template
+ * @param {string} subject Email subject
+ * @param {Function} contentGenerator Function that returns HTML content
+ * @return {Object} Email template object
  */
 export const createEmailTemplate = (
   subject: string,
