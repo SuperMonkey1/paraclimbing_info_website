@@ -4,6 +4,7 @@
     "paraclimbing": "What is Paraclimbing?",
     "activities": "Events",
     "support": "Partners",
+    "liveStream": "Live Stream",
     "contact": "Contact"
   },
   "languages": {
@@ -180,5 +181,19 @@
     "faqQuestion": "Do you also offer paraclimbing sessions for people with mental disabilities or autism?",
     "faqAnswer": "Currently, our paraclimbing programs are specifically designed for people with physical disabilities. While we're always striving to be inclusive, our expertise, resources, and trained coaches are specialized in supporting climbers with various physical disabilities. We'd be happy to recommend other climbing organizations that offer wonderful programs for people with autism or mental disabilities if you reach out to us directly!",
     "moreQuestionsText": "Don't see your question answered here? Feel free to reach out to us directly."
+  },
+  "liveStreamPage": {
+    "title": "Live Stream",
+    "subtitle": "The best live stream experience for paraclimbing competitions. With more info on your favorite climbers.",
+    "streamInfo": {
+      "title": "Experience Paraclimbing Live",
+      "description": "Join us for live coverage of paraclimbing competitions and special events. Connect with our community and witness the incredible skill and determination of paraclimbers from around the world."
+    },
+    "cta": {
+      "title": "Stay Connected",
+      "description": "Don't miss out on any of our live events. Subscribe to our YouTube channel and check our events calendar for upcoming streams.",
+      "subscribe": "Subscribe to YouTube",
+      "viewEvents": "View Events Calendar"
+    }
   }
 }

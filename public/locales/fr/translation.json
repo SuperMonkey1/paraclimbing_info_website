@@ -4,6 +4,7 @@
     "paraclimbing": "Qu'est-ce que le Paraclimbing?",
     "activities": "Événements",
     "support": "Partenaires",
+    "liveStream": "Diffusion en Direct",
     "contact": "Contact"
   },
   "languages": {
@@ -180,5 +181,19 @@
     "faqQuestion": "Proposez-vous également des sessions de paraclimbing pour les personnes ayant un handicap mental ou de l'autisme ?",
     "faqAnswer": "Actuellement, nos programmes de paraclimbing sont spécifiquement conçus pour les personnes ayant un handicap physique. Bien que nous nous efforcions toujours d'être inclusifs, notre expertise, nos ressources et nos entraîneurs formés sont spécialisés dans le soutien aux grimpeurs ayant divers handicaps physiques. Nous serions heureux de vous recommander d'autres organisations d'escalade qui proposent d'excellents programmes pour les personnes atteintes d'autisme ou de handicap mental si vous nous contactez directement !",
     "moreQuestionsText": "Vous ne trouvez pas la réponse à votre question ? N'hésitez pas à nous contacter directement."
+  },
+  "liveStreamPage": {
+    "title": "Diffusion en Direct",
+    "subtitle": "La meilleure expérience de diffusion en direct pour les compétitions de paraclimbing. Avec plus d'infos sur vos grimpeurs favoris.",
+    "streamInfo": {
+      "title": "Vivez le Paraclimbing en Direct",
+      "description": "Rejoignez-nous pour la couverture en direct des compétitions de paraclimbing et des événements spéciaux. Connectez-vous avec notre communauté et témoignez de l'incroyable habileté et détermination des paragrimpeurs du monde entier."
+    },
+    "cta": {
+      "title": "Restez Connecté",
+      "description": "Ne manquez aucun de nos événements en direct. Abonnez-vous à notre chaîne YouTube et consultez notre calendrier d'événements pour les prochaines diffusions.",
+      "subscribe": "S'abonner à YouTube",
+      "viewEvents": "Voir le Calendrier des Événements"
+    }
   }
 }

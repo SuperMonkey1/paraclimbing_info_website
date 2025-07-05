@@ -4,6 +4,7 @@
     "paraclimbing": "Wat is Paraklimmen?",
     "activities": "Evenementen",
     "support": "Partners",
+    "liveStream": "Live Stream",
     "contact": "Contact"
   },
   "languages": {
@@ -180,5 +181,19 @@
     "faqQuestion": "Bieden jullie ook paraklim-sessies aan voor mensen met een verstandelijke beperking of autisme?",
     "faqAnswer": "Momenteel zijn onze paraklimprogramma's specifiek ontworpen voor mensen met een lichamelijke beperking. Hoewel we altijd streven naar inclusiviteit, zijn onze expertise, middelen en getrainde coaches gespecialiseerd in het ondersteunen van klimmers met verschillende fysieke beperkingen. We kunnen graag andere klimorganisaties aanbevelen die geweldige programma's aanbieden voor mensen met autisme of een verstandelijke beperking als je rechtstreeks contact met ons opneemt!",
     "moreQuestionsText": "Staat je vraag hier niet bij? Neem gerust rechtstreeks contact met ons op."
+  },
+  "liveStreamPage": {
+    "title": "Live Stream",
+    "subtitle": "De beste live stream ervaring voor paraklimwedstrijden. Met meer info over je favoriete klimmers.",
+    "streamInfo": {
+      "title": "Ervaar Paraklimmen Live",
+      "description": "Sluit je aan bij ons voor live coverage van paraklimwedstrijden en speciale evenementen. Verbind met onze gemeenschap en getuig van de ongelooflijke vaardigheid en vastberadenheid van paraklimmers van over de hele wereld."
+    },
+    "cta": {
+      "title": "Blijf Verbonden",
+      "description": "Mis geen enkel live evenement. Abonneer je op ons YouTube kanaal en bekijk onze evenementenkalender voor aankomende streams.",
+      "subscribe": "Abonneer op YouTube",
+      "viewEvents": "Bekijk Evenementenkalender"
+    }
   }
 }

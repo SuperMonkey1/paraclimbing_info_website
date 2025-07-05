@@ -8,6 +8,7 @@ import BelgianTeamPage from './pages/BelgianTeamPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import SupportUsPage from './pages/SupportUsPage';
 import ContactPage from './pages/ContactPage';
+import LiveStreamPage from './pages/LiveStreamPage';
 import AdminPage from './pages/AdminPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -28,6 +29,7 @@ const App: React.FC = () => {
               <Route path="/activities" element={<ActivitiesPage />} />
               <Route path="/support-us" element={<SupportUsPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/live-stream" element={<LiveStreamPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

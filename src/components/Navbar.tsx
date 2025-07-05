@@ -43,6 +43,9 @@ const Navbar: React.FC = () => {
             <Link to="/support-us" className="text-dark hover:text-primary transition-colors">
               {t('navbar.support')}
             </Link>
+            <Link to="/live-stream" className="text-dark hover:text-primary transition-colors">
+              {t('navbar.liveStream')}
+            </Link>
             <Link to="/contact" className="text-dark hover:text-primary transition-colors">
               {t('navbar.contact')}
             </Link>
@@ -77,6 +80,9 @@ const Navbar: React.FC = () => {
               </Link>
               <Link to="/support-us" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 {t('navbar.support')}
+              </Link>
+              <Link to="/live-stream" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
+                {t('navbar.liveStream')}
               </Link>
               <Link to="/contact" className="text-dark hover:text-primary transition-colors px-4 py-2" onClick={handleMenuItemClick}>
                 {t('navbar.contact')}
