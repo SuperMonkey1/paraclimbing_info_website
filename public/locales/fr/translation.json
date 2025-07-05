@@ -189,6 +189,20 @@
       "title": "Vivez le Paraclimbing en Direct",
       "description": "Rejoignez-nous pour la couverture en direct des compétitions de paraclimbing et des événements spéciaux. Connectez-vous avec notre communauté et témoignez de l'incroyable habileté et détermination des paragrimpeurs du monde entier."
     },
+    "infoPanel": {
+      "title": "Infos Live",
+      "toggleButton": "Infos",
+      "currentEvent": "Événement Actuel",
+      "eventName": "Coupe du Monde de Paraclimbing 2025",
+      "eventLocation": "Bruxelles, Belgique",
+      "featuredClimbers": "Grimpeurs Vedettes",
+      "liveStats": "Statistiques Live",
+      "competitors": "Compétiteurs",
+      "routes": "Voies",
+      "nextUp": "Prochainement",
+      "nextEvent": "Finale Femmes",
+      "nextTime": "Début dans 15 minutes"
+    },
     "cta": {
       "title": "Restez Connecté",
       "description": "Ne manquez aucun de nos événements en direct. Abonnez-vous à notre chaîne YouTube et consultez notre calendrier d'événements pour les prochaines diffusions.",

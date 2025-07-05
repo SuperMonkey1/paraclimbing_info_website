@@ -189,6 +189,20 @@
       "title": "Experience Paraclimbing Live",
       "description": "Join us for live coverage of paraclimbing competitions and special events. Connect with our community and witness the incredible skill and determination of paraclimbers from around the world."
     },
+    "infoPanel": {
+      "title": "Live Info",
+      "toggleButton": "Info",
+      "currentEvent": "Current Event",
+      "eventName": "Paraclimbing World Cup 2025",
+      "eventLocation": "Brussels, Belgium",
+      "featuredClimbers": "Featured Climbers",
+      "liveStats": "Live Statistics",
+      "competitors": "Competitors",
+      "routes": "Routes",
+      "nextUp": "Next Up",
+      "nextEvent": "Women's Finals",
+      "nextTime": "Starting in 15 minutes"
+    },
     "cta": {
       "title": "Stay Connected",
       "description": "Don't miss out on any of our live events. Subscribe to our YouTube channel and check our events calendar for upcoming streams.",

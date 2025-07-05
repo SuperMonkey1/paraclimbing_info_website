@@ -189,6 +189,20 @@
       "title": "Ervaar Paraklimmen Live",
       "description": "Sluit je aan bij ons voor live coverage van paraklimwedstrijden en speciale evenementen. Verbind met onze gemeenschap en getuig van de ongelooflijke vaardigheid en vastberadenheid van paraklimmers van over de hele wereld."
     },
+    "infoPanel": {
+      "title": "Live Info",
+      "toggleButton": "Info",
+      "currentEvent": "Huidig Evenement",
+      "eventName": "Paraklim Wereldbeker 2025",
+      "eventLocation": "Brussel, België",
+      "featuredClimbers": "Uitgelichte Klimmers",
+      "liveStats": "Live Statistieken",
+      "competitors": "Deelnemers",
+      "routes": "Routes",
+      "nextUp": "Volgende",
+      "nextEvent": "Vrouwen Finale",
+      "nextTime": "Start over 15 minuten"
+    },
     "cta": {
       "title": "Blijf Verbonden",
       "description": "Mis geen enkel live evenement. Abonneer je op ons YouTube kanaal en bekijk onze evenementenkalender voor aankomende streams.",
