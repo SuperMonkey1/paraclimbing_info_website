@@ -457,7 +457,7 @@ const AddEventForm: React.FC<AddEventFormProps> = ({ isOpen, onClose, onSuccess 
             <div className="bg-blue-50 p-4 rounded-md">
               <p className="text-blue-800 text-sm">
                 <strong>Note:</strong> Your event will be reviewed by our team before being published. 
-                You'll receive a confirmation email once it's submitted, and another when it's approved.
+                You'll receive an email notification when your event is approved and goes live.
               </p>
             </div>
 
