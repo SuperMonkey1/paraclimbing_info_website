@@ -2,74 +2,25 @@ import React, { useMemo } from 'react';
 import Hero from '../components/Hero';
 import EventCard, { EventProps } from '../components/EventCard';
 import { Link } from 'react-router-dom';
-import { allEvents } from '../data/events';
+import { useAllEvents } from '../hooks/useAllEvents';
 import NewsletterSubscriptionForm from '../components/NewsletterSubscriptionForm';
 import { useTranslation } from 'react-i18next';
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
-  // Create the featured events list with prioritization rules
+  const { events, loading, error } = useAllEvents();
+  
+  // Get the first three events (no date filtering, just like the activities page)
   const featuredEvents = useMemo(() => {
-    const currentDate = new Date();
-    const currentMonth = currentDate.getMonth() + 1; // January is 0
-    const showEndOfYearEvent = currentMonth >= 10 || currentMonth <= 1; // October to January
+    console.log('DEBUG: All events from Firebase:', events);
     
-    const events: EventProps[] = [];
+    // Just take the first 3 events, no filtering
+    const firstThreeEvents = events.slice(0, 3);
     
-    // 1. Always add the monthly training session
-    const monthlyTraining = {
-      id: 'monthly-training',
-      title: t('events.monthlyTraining.title'),
-      date: t('events.monthlyTraining.date'),
-      location: t('events.monthlyTraining.location'),
-      description: t('events.monthlyTraining.description'),
-      imageUrl: '/assets/monthly.jpg',
-      type: 'workshops',
-      externalUrl: '/activities#monthly-training' // Link to the activities page's monthly training section
-    };
-    events.push(monthlyTraining);
+    console.log('DEBUG: First 3 events for home page:', firstThreeEvents);
     
-    // 2. Prioritize non-international events
-    const nonInternationalEvents = allEvents.filter(event => 
-      event.type !== 'international' && 
-      !(event.title.includes('End of Year') && !showEndOfYearEvent)
-    );
-    
-    // 3. Add end of year event if in October-January
-    const endOfYearEvent = allEvents.find(event => event.title.includes('End of Year'));
-    if (endOfYearEvent && showEndOfYearEvent) {
-      events.push(endOfYearEvent);
-    }
-    
-    // 4. Add other non-international events
-    const otherNonInternational = nonInternationalEvents
-      .filter(event => !event.title.includes('End of Year'))
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-    
-    for (const event of otherNonInternational) {
-      if (events.length < 3 && !events.some(e => e.id === event.id)) {
-        events.push(event);
-      }
-    }
-    
-    // 5. Fill with international events if needed
-    if (events.length < 3) {
-      const internationalEvents = allEvents
-        .filter(event => event.type === 'international')
-        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-      
-      for (const event of internationalEvents) {
-        if (events.length < 3) {
-          events.push(event);
-        } else {
-          break;
-        }
-      }
-    }
-    
-    // Limit to 3 events maximum
-    return events.slice(0, 3);
-  }, []);
+    return firstThreeEvents;
+  }, [events]);
 
   return (
     <div>
@@ -117,17 +68,45 @@ const HomePage: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredEvents.map((event) => (
-              <EventCard key={event.id} {...event} />
-            ))}
-          </div>
-          
-          <div className="text-center mt-10">
-            <Link to="/activities" className="btn btn-primary">
-              {t('events.viewAll')}
-            </Link>
-          </div>
+          {loading ? (
+            <div className="text-center py-8">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+              <p className="mt-4 text-gray-600">Loading events...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-8">
+              <p className="text-red-600 mb-4">Error loading events: {error}</p>
+              <button 
+                onClick={() => window.location.reload()} 
+                className="btn btn-primary"
+              >
+                Retry
+              </button>
+            </div>
+          ) : featuredEvents.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {featuredEvents.map((event) => (
+                  <EventCard key={event.id} {...event} />
+                ))}
+              </div>
+              
+              <div className="text-center mt-10">
+                <Link to="/activities" className="btn btn-primary">
+                  {t('events.viewAll')}
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-8">
+              <p className="text-gray-600 mb-4">No events available at the moment.</p>
+              <div className="text-center mt-6">
+                <Link to="/activities" className="btn btn-primary">
+                  {t('events.viewAll')}
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </section>
       

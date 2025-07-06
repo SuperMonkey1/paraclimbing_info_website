@@ -192,6 +192,7 @@
     "infoPanel": {
       "title": "Infos Live",
       "toggleButton": "Infos",
+      "expandButton": "Masquer Infos",
       "currentEvent": "Événement Actuel",
       "eventName": "Coupe du Monde de Paraclimbing 2025",
       "eventLocation": "Bruxelles, Belgique",

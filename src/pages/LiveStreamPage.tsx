@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import BottomSheet from '../components/BottomSheet';
 
 const LiveStreamPage: React.FC = () => {
   const { t } = useTranslation();
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isOurFullscreen, setIsOurFullscreen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const togglePanel = () => {
     setIsPanelOpen(!isPanelOpen);
@@ -27,14 +41,89 @@ const LiveStreamPage: React.FC = () => {
     setIsPanelOpen(false);
   };
 
+  // Info panel content component
+  const InfoPanelContent = () => (
+    <div className="space-y-6">
+      {/* Current Event Info */}
+      <div className="border-b border-gray-200 pb-4">
+        <h4 className="font-semibold text-dark mb-2">
+          {t('liveStreamPage.infoPanel.currentEvent')}
+        </h4>
+        <p className="text-sm text-gray-600 mb-1">
+          {t('liveStreamPage.infoPanel.eventName')}
+        </p>
+        <p className="text-xs text-gray-500">
+          {t('liveStreamPage.infoPanel.eventLocation')}
+        </p>
+      </div>
+
+      {/* Featured Climbers */}
+      <div className="border-b border-gray-200 pb-4">
+        <h4 className="font-semibold text-dark mb-3">
+          {t('liveStreamPage.infoPanel.featuredClimbers')}
+        </h4>
+        <div className="space-y-3">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+              <span className="text-xs font-semibold text-gray-600">JD</span>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-dark">John Doe</p>
+              <p className="text-xs text-gray-500">Belgium • RP2</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+              <span className="text-xs font-semibold text-gray-600">JS</span>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-dark">Jane Smith</p>
+              <p className="text-xs text-gray-500">France • AU2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Live Statistics */}
+      <div className="border-b border-gray-200 pb-4">
+        <h4 className="font-semibold text-dark mb-3">
+          {t('liveStreamPage.infoPanel.liveStats')}
+        </h4>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="text-center p-2 bg-gray-50 rounded">
+            <p className="text-lg font-bold text-primary">24</p>
+            <p className="text-xs text-gray-600">{t('liveStreamPage.infoPanel.competitors')}</p>
+          </div>
+          <div className="text-center p-2 bg-gray-50 rounded">
+            <p className="text-lg font-bold text-secondary">6</p>
+            <p className="text-xs text-gray-600">{t('liveStreamPage.infoPanel.routes')}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Next Up */}
+      <div>
+        <h4 className="font-semibold text-dark mb-2">
+          {t('liveStreamPage.infoPanel.nextUp')}
+        </h4>
+        <p className="text-sm text-gray-600">
+          {t('liveStreamPage.infoPanel.nextEvent')}
+        </p>
+        <p className="text-xs text-gray-500 mt-1">
+          {t('liveStreamPage.infoPanel.nextTime')}
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <>
       {/* Our custom fullscreen overlay */}
       {isOurFullscreen && (
         <div className="fixed inset-0 bg-black z-50">
-          {/* Video container - always takes available space */}
+          {/* Video container - responsive layout */}
           <div className={`absolute inset-0 transition-all duration-300 ease-in-out ${
-            isPanelOpen ? 'right-1/3' : 'right-0'
+            isPanelOpen && !isMobile ? 'right-1/3' : 'right-0'
           }`}>
             <iframe
               className="w-full h-full"
@@ -71,7 +160,7 @@ const LiveStreamPage: React.FC = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>
-                {t('liveStreamPage.infoPanel.expandButton')}
+                <span className="hidden sm:inline">{t('liveStreamPage.infoPanel.expandButton')}</span>
               </>
             ) : (
               <>
@@ -83,96 +172,37 @@ const LiveStreamPage: React.FC = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                {t('liveStreamPage.infoPanel.toggleButton')}
+                <span className="hidden sm:inline">{t('liveStreamPage.infoPanel.toggleButton')}</span>
               </>
             )}
           </button>
           
-          {/* Info Panel */}
-          <div className={`absolute top-0 right-0 h-full w-1/3 bg-white shadow-xl transition-transform duration-300 ease-in-out z-20 ${
-            isPanelOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}>
-            
-            <div className="p-6 h-full overflow-y-auto">
-              <div className="mb-6 pr-4">
-                <h3 className="text-xl font-bold text-dark">
-                  {t('liveStreamPage.infoPanel.title')}
-                </h3>
-              </div>
-              
-              <div className="space-y-6">
-                {/* Current Event Info */}
-                <div className="border-b border-gray-200 pb-4">
-                  <h4 className="font-semibold text-dark mb-2">
-                    {t('liveStreamPage.infoPanel.currentEvent')}
-                  </h4>
-                  <p className="text-sm text-gray-600 mb-1">
-                    {t('liveStreamPage.infoPanel.eventName')}
-                  </p>
-                  <p className="text-xs text-gray-500">
-                    {t('liveStreamPage.infoPanel.eventLocation')}
-                  </p>
+          {/* Desktop Info Panel (hidden on mobile) */}
+          {!isMobile && (
+            <div className={`absolute top-0 right-0 h-full w-1/3 bg-white shadow-xl transition-transform duration-300 ease-in-out z-20 ${
+              isPanelOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}>
+              <div className="p-6 h-full overflow-y-auto">
+                <div className="mb-6 pr-4">
+                  <h3 className="text-xl font-bold text-dark">
+                    {t('liveStreamPage.infoPanel.title')}
+                  </h3>
                 </div>
-
-                {/* Featured Climbers */}
-                <div className="border-b border-gray-200 pb-4">
-                  <h4 className="font-semibold text-dark mb-3">
-                    {t('liveStreamPage.infoPanel.featuredClimbers')}
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                        <span className="text-xs font-semibold text-gray-600">JD</span>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-dark">John Doe</p>
-                        <p className="text-xs text-gray-500">Belgium • RP2</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                        <span className="text-xs font-semibold text-gray-600">JS</span>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-dark">Jane Smith</p>
-                        <p className="text-xs text-gray-500">France • AU2</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Live Statistics */}
-                <div className="border-b border-gray-200 pb-4">
-                  <h4 className="font-semibold text-dark mb-3">
-                    {t('liveStreamPage.infoPanel.liveStats')}
-                  </h4>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="text-center p-2 bg-gray-50 rounded">
-                      <p className="text-lg font-bold text-primary">24</p>
-                      <p className="text-xs text-gray-600">{t('liveStreamPage.infoPanel.competitors')}</p>
-                    </div>
-                    <div className="text-center p-2 bg-gray-50 rounded">
-                      <p className="text-lg font-bold text-secondary">6</p>
-                      <p className="text-xs text-gray-600">{t('liveStreamPage.infoPanel.routes')}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Next Up */}
-                <div>
-                  <h4 className="font-semibold text-dark mb-2">
-                    {t('liveStreamPage.infoPanel.nextUp')}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {t('liveStreamPage.infoPanel.nextEvent')}
-                  </p>
-                  <p className="text-xs text-gray-500 mt-1">
-                    {t('liveStreamPage.infoPanel.nextTime')}
-                  </p>
-                </div>
+                <InfoPanelContent />
               </div>
             </div>
-          </div>
+          )}
+          
+          {/* Mobile Bottom Sheet */}
+          {isMobile && (
+            <BottomSheet
+              isOpen={isPanelOpen}
+              onClose={closeInfoPanel}
+              title=""
+            >
+              <InfoPanelContent />
+            </BottomSheet>
+          )}
         </div>
       )}
 
@@ -218,7 +248,7 @@ const LiveStreamPage: React.FC = () => {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    {t('liveStreamPage.infoPanel.toggleButton')}
+                    <span className="hidden sm:inline">{t('liveStreamPage.infoPanel.toggleButton')}</span>
                   </button>
                 </div>
               </div>

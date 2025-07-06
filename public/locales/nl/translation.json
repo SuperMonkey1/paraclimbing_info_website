@@ -192,6 +192,7 @@
     "infoPanel": {
       "title": "Live Info",
       "toggleButton": "Info",
+      "expandButton": "Info Verbergen",
       "currentEvent": "Huidig Evenement",
       "eventName": "Paraklim Wereldbeker 2025",
       "eventLocation": "Brussel, België",

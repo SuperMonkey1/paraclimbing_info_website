@@ -192,6 +192,7 @@
     "infoPanel": {
       "title": "Live Info",
       "toggleButton": "Info",
+      "expandButton": "Hide Info",
       "currentEvent": "Current Event",
       "eventName": "Paraclimbing World Cup 2025",
       "eventLocation": "Brussels, Belgium",
