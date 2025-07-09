@@ -29,6 +29,8 @@ admin.initializeApp();
 // Set these using Firebase CLI: firebase functions:config:set
 // gmail.user="youremail@gmail.com" gmail.pass="yourapppassword"
 
+
+
 /**
  * Cloud Function that triggers when a new document is created in the 'contacts' collection
  * and sends a confirmation email to the subscriber
