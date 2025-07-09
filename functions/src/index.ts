@@ -12,7 +12,7 @@ import * as admin from "firebase-admin";
 import * as logger from "firebase-functions/logger";
 
 // Import email templates and service
-import {subscriptionConfirmationEmail, adminNotificationEmail, eventSubmissionNotificationEmail, eventApprovalNotificationEmail} from "./utils/email-templates";
+import {subscriptionConfirmationEmail, adminNotificationEmail, eventSubmissionNotificationEmail, eventApprovalNotificationEmail, newEventSubscriberNotificationEmail} from "./utils/email-templates";
 import {sendEmail} from "./utils/email-service";
 
 // Admin email addresses for notifications
@@ -90,6 +90,75 @@ export const sendConfirmationEmail = onDocumentCreated(
 );
 
 /**
+ * Helper function to send event notifications to all subscribers
+ * @param {Object} eventData The event data
+ * @param {string} eventData.title Event title
+ * @param {string} eventData.date Event date
+ * @param {string} eventData.location Event location
+ * @param {string} eventData.organiser Event organiser
+ * @param {string} eventData.description Event description (optional)
+ * @param {string} eventData.time Event time (optional)
+ */
+async function sendEventNotificationToSubscribers(eventData: {
+  title: string;
+  date: string;
+  location: string;
+  organiser: string;
+  description?: string;
+  time?: string;
+}) {
+  try {
+    // Get all subscribers from the contacts collection
+    const contactsSnapshot = await admin.firestore()
+      .collection("contacts")
+      .get();
+
+    if (contactsSnapshot.empty) {
+      logger.info("No subscribers found in contacts collection");
+      return;
+    }
+
+    // Extract email addresses from the contacts
+    const subscriberEmails: string[] = [];
+    contactsSnapshot.forEach((doc) => {
+      const data = doc.data();
+      if (data.email) {
+        subscriberEmails.push(data.email);
+      }
+    });
+
+    if (subscriberEmails.length === 0) {
+      logger.info("No valid email addresses found in contacts collection");
+      return;
+    }
+
+    logger.info(`Sending event notification to ${subscriberEmails.length} subscribers`);
+
+    // Send email to each subscriber
+    const emailPromises = subscriberEmails.map(async (email) => {
+      try {
+        await sendEmail(
+          email,
+          newEventSubscriberNotificationEmail.subject,
+          newEventSubscriberNotificationEmail.generateHtml(eventData)
+        );
+        logger.info(`Event notification sent to subscriber: ${email}`);
+      } catch (error) {
+        logger.error(`Failed to send event notification to ${email}:`, error);
+        // Continue with other emails even if one fails
+      }
+    });
+
+    // Wait for all emails to be sent (or fail)
+    await Promise.allSettled(emailPromises);
+    logger.info(`Finished sending event notifications to subscribers`);
+  } catch (error) {
+    logger.error("Error sending event notifications to subscribers:", error);
+    throw error;
+  }
+}
+
+/**
  * Cloud Function that triggers when an event document is updated
  * and sends an approval email to the submitter if the status changed to approved
  */
@@ -138,6 +207,16 @@ export const sendEventApprovalNotification = onDocumentUpdated(
         );
         logger.info(`Event approval notification sent to submitter: ${submittedBy}`);
 
+        // Send notification to all subscribers
+        await sendEventNotificationToSubscribers({
+          title: eventTitle,
+          date: eventDate,
+          location: eventLocation,
+          organiser: eventOrganiser,
+          description: afterData.description,
+          time: afterData.time,
+        });
+
         // Update the document to record that the approval notification was sent
         if (event.data) {
           await admin.firestore()
@@ -146,6 +225,8 @@ export const sendEventApprovalNotification = onDocumentUpdated(
             .update({
               approvalNotificationSent: true,
               approvalNotificationSentAt: admin.firestore.FieldValue.serverTimestamp(),
+              subscriberNotificationSent: true,
+              subscriberNotificationSentAt: admin.firestore.FieldValue.serverTimestamp(),
             });
         }
 
