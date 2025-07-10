@@ -1,3 +1,12 @@
 # Allow all web crawlers
 User-agent: *
 Allow: /
+
+# Disallow admin pages
+Disallow: /admin
+
+# Sitemap location
+Sitemap: https://paraclimbing.info/sitemap.xml
+
+# Crawl-delay for good behavior
+Crawl-delay: 1

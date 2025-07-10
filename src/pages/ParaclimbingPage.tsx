@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const ParaclimbingPage: React.FC = () => {
   const categories = [
@@ -32,6 +33,42 @@ const ParaclimbingPage: React.FC = () => {
 
   return (
     <div>
+      <SEO 
+        title="What is Paraclimbing?"
+        description="Learn about paraclimbing - adaptive climbing for people with disabilities. Discover the classification system, competition formats, and how paraclimbing is making its Paralympic debut in 2028."
+        keywords="paraclimbing, adaptive climbing, climbing disabilities, Paralympic climbing, B1 B2 B3 climbing, AL AU RP climbing categories, IFSC paraclimbing, adaptive sports"
+        canonical="https://paraclimbing.info/paraclimbing"
+      />
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "What is Paraclimbing? Understanding Adaptive Climbing",
+            "description": "Learn about paraclimbing - adaptive climbing for people with disabilities. Discover the classification system, competition formats, and how paraclimbing is making its Paralympic debut in 2028.",
+            "author": {
+              "@type": "Organization",
+              "name": "Paraclimbing.info"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Paraclimbing.info",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://paraclimbing.info/assets/logo.png"
+              }
+            },
+            "datePublished": "2025-01-01",
+            "dateModified": "2025-01-01",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://paraclimbing.info/paraclimbing"
+            },
+            "image": "https://paraclimbing.info/assets/what-is-paraclimbing-hero.jpg"
+          })
+        }}
+      />
       <Hero
         title="What is Paraclimbing?"
         subtitle="Understanding adaptive climbing for people with physical disabilities"

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useAllEvents } from '../hooks/useAllEvents';
 import NewsletterSubscriptionForm from '../components/NewsletterSubscriptionForm';
 import { useTranslation } from 'react-i18next';
+import SEO from '../components/SEO';
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
@@ -24,6 +25,28 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
+      <SEO 
+        title="Home - Paraclimbing.info"
+        description="Best resource for adaptive climbing. Discover paraclimbing competitions, training, events, and support for climbers with disabilities. Join our inclusive climbing community."
+        canonical="https://paraclimbing.info/"
+      />
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Paraclimbing.info",
+            "url": "https://paraclimbing.info",
+            "description": "Premier resource for adaptive climbing and paraclimbing competitions",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://paraclimbing.info/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
       <Hero
         title={t('hero.title')}
         subtitle={t('hero.subtitle')}

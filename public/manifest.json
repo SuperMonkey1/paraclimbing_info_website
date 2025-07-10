@@ -1,9 +1,30 @@
 {
-  "short_name": "Paraclimbing Info",
-  "name": "Paraclimbing Info",
-  "icons": [],
+  "short_name": "Paraclimbing",
+  "name": "Paraclimbing.info - Inclusive Climbing For All",
+  "description": "The best resource for para climbing and paraclimbing competitions",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#B91C1C",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "categories": ["sports", "adaptive", "climbing", "disability"],
+  "lang": "en",
+  "scope": "/",
+  "orientation": "portrait-primary"
 }
