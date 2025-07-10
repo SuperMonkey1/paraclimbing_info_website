@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import BottomSheet from '../components/BottomSheet';
+import Schedule from '../components/Schedule';
+import scheduleData from '../data/event_1463_schedule_with_names.json';
 
 const LiveStreamPage: React.FC = () => {
   const { t } = useTranslation();
@@ -57,61 +59,13 @@ const LiveStreamPage: React.FC = () => {
         </p>
       </div>
 
-      {/* Featured Climbers */}
-      <div className="border-b border-gray-200 pb-4">
-        <h4 className="font-semibold text-dark mb-3">
-          {t('liveStreamPage.infoPanel.featuredClimbers')}
-        </h4>
-        <div className="space-y-3">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-              <span className="text-xs font-semibold text-gray-600">JD</span>
-            </div>
-            <div>
-              <p className="text-sm font-medium text-dark">John Doe</p>
-              <p className="text-xs text-gray-500">Belgium • RP2</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-              <span className="text-xs font-semibold text-gray-600">JS</span>
-            </div>
-            <div>
-              <p className="text-sm font-medium text-dark">Jane Smith</p>
-              <p className="text-xs text-gray-500">France • AU2</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Live Statistics */}
-      <div className="border-b border-gray-200 pb-4">
-        <h4 className="font-semibold text-dark mb-3">
-          {t('liveStreamPage.infoPanel.liveStats')}
-        </h4>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="text-center p-2 bg-gray-50 rounded">
-            <p className="text-lg font-bold text-primary">24</p>
-            <p className="text-xs text-gray-600">{t('liveStreamPage.infoPanel.competitors')}</p>
-          </div>
-          <div className="text-center p-2 bg-gray-50 rounded">
-            <p className="text-lg font-bold text-secondary">6</p>
-            <p className="text-xs text-gray-600">{t('liveStreamPage.infoPanel.routes')}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Next Up */}
+      {/* Live Schedule */}
       <div>
-        <h4 className="font-semibold text-dark mb-2">
-          {t('liveStreamPage.infoPanel.nextUp')}
-        </h4>
-        <p className="text-sm text-gray-600">
-          {t('liveStreamPage.infoPanel.nextEvent')}
-        </p>
-        <p className="text-xs text-gray-500 mt-1">
-          {t('liveStreamPage.infoPanel.nextTime')}
-        </p>
+        <Schedule 
+          scheduleData={scheduleData} 
+          compact={isMobile}
+          className=""
+        />
       </div>
     </div>
   );
