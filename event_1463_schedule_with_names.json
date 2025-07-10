@@ -1,0 +1,277 @@
+{
+  "time_slots": [
+    {
+      "Time": "16:25",
+      "Route 1": "Presentation",
+      "Route 2": "Presentation",
+      "Route 3": "Presentation",
+      "Route 4": "Presentation"
+    },
+    {
+      "Time": "16:35",
+      "Route 1": "Emily SEELENFREUND",
+      "Route 2": "Philipp HROZEK",
+      "Route 3": "Luke SMITH",
+      "Route 4": "Lucy KEYWORTH"
+    },
+    {
+      "Time": "16:39",
+      "Route 1": "Sarah LONGHI",
+      "Route 2": "Brayden BUTLER",
+      "Route 3": "Jamie BARENDRECHT",
+      "Route 4": "Hannah ZOOK"
+    },
+    {
+      "Time": "16:43",
+      "Route 1": "Matoi FUTAHASHI",
+      "Route 2": "Benjamin MAYFORTH",
+      "Route 3": "Bastien THOMAS",
+      "Route 4": "Jackie STEWART"
+    },
+    {
+      "Time": "16:47",
+      "Route 1": "Jasmin PLANK",
+      "Route 2": "Manikandan KUMAR",
+      "Route 3": "Igor Jean SILVA MESQUITA",
+      "Route 4": "Melissa RUIZ"
+    },
+    {
+      "Time": "16:51",
+      "Route 1": "Charlotte ANDREW",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Luke JAMIESON"
+    },
+    {
+      "Time": "16:55",
+      "Route 1": "Marina DIAS",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Tim BERRUYER GALTÉ"
+    },
+    {
+      "Time": "16:59",
+      "Route 1": "Christiane LUTTIKHUIZEN",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Andries Hille OUDIJK"
+    },
+    {
+      "Time": "17:03",
+      "Route 1": "Laura NESCIOBELLI",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Kim RISHAUG"
+    },
+    {
+      "Time": "17:07",
+      "Route 1": "Nat VOREL",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Korbinian FRANCK"
+    },
+    {
+      "Time": "17:11",
+      "Route 1": "",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Aloïs POTTIER"
+    },
+    {
+      "Time": "17:25",
+      "Route 1": "Presentation",
+      "Route 2": "Presentation",
+      "Route 3": "Presentation",
+      "Route 4": "Presentation"
+    },
+    {
+      "Time": "17:35",
+      "Route 1": "",
+      "Route 2": "Nicolas MOINEAU",
+      "Route 3": "",
+      "Route 4": "Laila GRILLO"
+    },
+    {
+      "Time": "17:39",
+      "Route 1": "",
+      "Route 2": "Simone SALVAGNIN",
+      "Route 3": "",
+      "Route 4": "Tanja GLUSIC"
+    },
+    {
+      "Time": "17:43",
+      "Route 1": "",
+      "Route 2": "Francisco Javier AGUILAR AMOEDO",
+      "Route 3": "",
+      "Route 4": "Nadia BREDICE"
+    },
+    {
+      "Time": "17:47",
+      "Route 1": "",
+      "Route 2": "Sho AITA",
+      "Route 3": "",
+      "Route 4": "Luisa GRUBE"
+    },
+    {
+      "Time": "17:51",
+      "Route 1": "",
+      "Route 2": "Motohiro EJIRI",
+      "Route 3": "",
+      "Route 4": "Linda LE BON"
+    },
+    {
+      "Time": "17:55",
+      "Route 1": "",
+      "Route 2": "Guillermo PELEGRÍN GÓMEZ",
+      "Route 3": "",
+      "Route 4": "Seneida BIENDARRA"
+    },
+    {
+      "Time": "17:59",
+      "Route 1": "",
+      "Route 2": "Fumiya HAMANOUE",
+      "Route 3": "",
+      "Route 4": "Elsa BOUTEL MENARD"
+    },
+    {
+      "Time": "18:03",
+      "Route 1": "",
+      "Route 2": "Razvan NEDU",
+      "Route 3": "",
+      "Route 4": "Phoebe BARKAN"
+    },
+    {
+      "Time": "18:07",
+      "Route 1": "",
+      "Route 2": "Kazuhiro MINOWADA",
+      "Route 3": "",
+      "Route 4": "Ionela DRAGAN"
+    },
+    {
+      "Time": "18:11",
+      "Route 1": "",
+      "Route 2": "Daniel-Bebe-Vasilică ANDREI",
+      "Route 3": "",
+      "Route 4": "Linn POSTON"
+    },
+    {
+      "Time": "18:15",
+      "Route 1": "",
+      "Route 2": "Cosmin Florin CANDOI",
+      "Route 3": "",
+      "Route 4": ""
+    },
+    {
+      "Time": "18:30",
+      "Route 1": "Presentation",
+      "Route 2": "Presentation",
+      "Route 3": "Presentation",
+      "Route 4": "Presentation"
+    },
+    {
+      "Time": "18:40",
+      "Route 1": "Paula DE LA CALLE PIZARRO",
+      "Route 2": "Isak RIPMAN",
+      "Route 3": "Dominic GEISSELER",
+      "Route 4": ""
+    },
+    {
+      "Time": "18:44",
+      "Route 1": "Oriane ILPIDE",
+      "Route 2": "Eduardo MIGUEL SCHAUS",
+      "Route 3": "Bruno LONGUET",
+      "Route 4": ""
+    },
+    {
+      "Time": "18:48",
+      "Route 1": "Rosalie SCHAUPERT",
+      "Route 2": "Brian ZARZUELA",
+      "Route 3": "Bence KEREKES",
+      "Route 4": ""
+    },
+    {
+      "Time": "18:52",
+      "Route 1": "Carolin HEBERLE",
+      "Route 2": "Kevin BARTKE",
+      "Route 3": "Mason KEOUGH",
+      "Route 4": ""
+    },
+    {
+      "Time": "18:56",
+      "Route 1": "Liv WIKMAN",
+      "Route 2": "Masako WATANABE",
+      "Route 3": "Iván GERMÁN PASCUAL",
+      "Route 4": ""
+    },
+    {
+      "Time": "19:00",
+      "Route 1": "Isabel BENVENUTI",
+      "Route 2": "Fiamma COCCHI",
+      "Route 3": "Ethan ZILZ",
+      "Route 4": ""
+    },
+    {
+      "Time": "19:04",
+      "Route 1": "Siloë TETAZ",
+      "Route 2": "Lucie JARRIGE",
+      "Route 3": "Shuhei YUKI",
+      "Route 4": ""
+    },
+    {
+      "Time": "19:08",
+      "Route 1": "Lucia CAPOVILLA",
+      "Route 2": "",
+      "Route 3": "Albert GUARDIA FERRER",
+      "Route 4": "Júlia CASTELLÓ FARRÉ"
+    },
+    {
+      "Time": "19:12",
+      "Route 1": "Solenne PIRET",
+      "Route 2": "",
+      "Route 3": "Frederik LEYS",
+      "Route 4": "Andrea WILSON"
+    },
+    {
+      "Time": "19:16",
+      "Route 1": "",
+      "Route 2": "",
+      "Route 3": "Thierry DELARUE",
+      "Route 4": "Pavitra VANDENHOVEN"
+    },
+    {
+      "Time": "19:20",
+      "Route 1": "",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Marek DUČÁK"
+    },
+    {
+      "Time": "19:24",
+      "Route 1": "",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Matej ARH"
+    },
+    {
+      "Time": "19:28",
+      "Route 1": "",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Markus PÖSENDORFER"
+    },
+    {
+      "Time": "19:32",
+      "Route 1": "",
+      "Route 2": "",
+      "Route 3": "",
+      "Route 4": "Angelino ZELLER"
+    },
+    {
+      "Time": "20:30",
+      "Route 1": "Awards",
+      "Route 2": "Awards",
+      "Route 3": "Awards",
+      "Route 4": "Awards"
+    }
+  ]
+}
