@@ -30,6 +30,8 @@ const AnalyseStreamPage: React.FC = () => {
   const [isApiReady, setIsApiReady] = useState(false);
   const [selectedClimber, setSelectedClimber] = useState<string | null>(null);
   const [currentVideoTime, setCurrentVideoTime] = useState<number>(0);
+  const infoPanelScrollRef = useRef<HTMLDivElement>(null);
+  const savedInfoPanelScroll = useRef<number>(0);
   const playerRef = useRef<YouTubePlayer | null>(null);
   const fullscreenPlayerRef = useRef<YouTubePlayer | null>(null);
   const normalPlayerRef = useRef<HTMLDivElement>(null);
@@ -152,6 +154,36 @@ const AnalyseStreamPage: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [isOurFullscreen, playerRef.current, fullscreenPlayerRef.current]);
+
+  // Preserve info panel scroll position
+  useEffect(() => {
+    const container = infoPanelScrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      savedInfoPanelScroll.current = container.scrollTop;
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, [isPanelOpen]);
+
+  // Restore scroll position after re-renders
+  useEffect(() => {
+    const restoreScrollPosition = () => {
+      if (infoPanelScrollRef.current && savedInfoPanelScroll.current > 0) {
+        infoPanelScrollRef.current.scrollTop = savedInfoPanelScroll.current;
+      }
+    };
+    
+    // Restore after a brief delay to ensure DOM is updated
+    const timeoutId = setTimeout(restoreScrollPosition, 50);
+    
+    return () => clearTimeout(timeoutId);
+  }, [currentVideoTime, selectedClimber]); // Run when these change
 
   const togglePanel = () => {
     setIsPanelOpen(!isPanelOpen);
@@ -451,7 +483,7 @@ const AnalyseStreamPage: React.FC = () => {
             <div className={`absolute top-0 right-0 h-full w-1/3 bg-white shadow-xl transition-transform duration-300 ease-in-out z-20 ${
               isPanelOpen ? 'translate-x-0' : 'translate-x-full'
             }`}>
-              <div className="p-6 h-full overflow-y-auto">
+              <div className="p-6 h-full overflow-y-auto" ref={infoPanelScrollRef}>
                 <div className="mb-6 pr-4">
                   <h3 className="text-xl font-bold text-dark">
                     Stream Analysis
