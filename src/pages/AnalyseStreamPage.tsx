@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import BottomSheet from '../components/BottomSheet';
-import Schedule from '../components/Schedule';
+import AnalysisSchedule from '../components/AnalysisSchedule';
 import scheduleData from '../data/event_1463_schedule_with_names.json';
+import { scheduleService } from '../firebase/climber-service';
+import { testFirebaseConnection, createInitialScheduleDocument } from '../firebase/test-service';
 
 // YouTube API types
 declare global {
@@ -26,6 +28,8 @@ const AnalyseStreamPage: React.FC = () => {
   const [isOurFullscreen, setIsOurFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isApiReady, setIsApiReady] = useState(false);
+  const [selectedClimber, setSelectedClimber] = useState<string | null>(null);
+  const [currentVideoTime, setCurrentVideoTime] = useState<number>(0);
   const playerRef = useRef<YouTubePlayer | null>(null);
   const fullscreenPlayerRef = useRef<YouTubePlayer | null>(null);
   const normalPlayerRef = useRef<HTMLDivElement>(null);
@@ -124,6 +128,31 @@ const AnalyseStreamPage: React.FC = () => {
     };
   }, [isApiReady, isOurFullscreen]);
 
+  // Track video time for status calculations
+  useEffect(() => {
+    const updateVideoTime = () => {
+      const player = isOurFullscreen ? fullscreenPlayerRef.current : playerRef.current;
+      if (player) {
+        try {
+          const time = player.getCurrentTime();
+          if (typeof time === 'number' && !isNaN(time)) {
+            setCurrentVideoTime(time);
+          }
+        } catch (error) {
+          // Silently ignore errors when player isn't ready
+        }
+      }
+    };
+
+    // Update video time every 2 seconds instead of every second
+    const interval = setInterval(updateVideoTime, 2000);
+
+    // Update immediately
+    updateVideoTime();
+
+    return () => clearInterval(interval);
+  }, [isOurFullscreen, playerRef.current, fullscreenPlayerRef.current]);
+
   const togglePanel = () => {
     setIsPanelOpen(!isPanelOpen);
   };
@@ -137,6 +166,28 @@ const AnalyseStreamPage: React.FC = () => {
     // When entering our fullscreen, also open the panel
     if (!isOurFullscreen) {
       setIsPanelOpen(true);
+    }
+  };
+
+  // Test Firebase connection
+  const testFirebase = async () => {
+    try {
+      await testFirebaseConnection();
+      alert('Firebase connection test successful! Check console for details.');
+    } catch (error) {
+      console.error('Firebase test failed:', error);
+      alert('Firebase connection test failed. Check console for details.');
+    }
+  };
+
+  // Create initial schedule document
+  const createScheduleDoc = async () => {
+    try {
+      await createInitialScheduleDocument();
+      alert('Initial schedule document created successfully!');
+    } catch (error) {
+      console.error('Failed to create schedule document:', error);
+      alert('Failed to create schedule document. Check console for details.');
     }
   };
 
@@ -172,6 +223,47 @@ const AnalyseStreamPage: React.FC = () => {
     }
   };
 
+  // Handle climber click - record start time in Firebase
+  const handleClimberClick = useCallback(async (climberName: string, route: string, scheduledTime: string) => {
+    const player = isOurFullscreen ? fullscreenPlayerRef.current : playerRef.current;
+    if (!player) {
+      alert('Video player not ready. Please wait for the video to load.');
+      return;
+    }
+
+    try {
+      console.log('Attempting to record start time for:', { climberName, route, scheduledTime });
+      
+      const currentVideoTime = player.getCurrentTime();
+      console.log('Current video time:', currentVideoTime);
+      
+      await scheduleService.setClimberStartTime(climberName, route, scheduledTime, currentVideoTime);
+      setSelectedClimber(`${climberName} - ${route}`);
+      
+      // Show success notification
+      const notification = document.createElement('div');
+      notification.className = 'fixed top-20 right-4 bg-green-500 text-white p-3 rounded-lg shadow-lg z-50';
+      notification.textContent = `✓ Start time recorded for ${climberName} on ${route}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        if (document.body.contains(notification)) {
+          document.body.removeChild(notification);
+        }
+      }, 3000);
+    } catch (error) {
+      console.error('Detailed error recording climber start time:', error);
+      
+      // Show more detailed error message
+      let errorMessage = 'Failed to record start time.';
+      if (error instanceof Error) {
+        errorMessage += ` Error: ${error.message}`;
+      }
+      
+      alert(errorMessage + ' Check console for details.');
+    }
+  }, [isOurFullscreen]);
+
   // Info panel content component
   const InfoPanelContent = () => (
     <div className="space-y-6">
@@ -202,14 +294,56 @@ const AnalyseStreamPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Firebase Debug Section */}
+      <div className="border-b border-gray-200 pb-4">
+        <h4 className="font-semibold text-dark mb-3">
+          Firebase Debug
+        </h4>
+        <div className="mb-3 text-sm text-gray-600">
+          <p>Current Video Time: {Math.floor(currentVideoTime / 60)}:{String(Math.floor(currentVideoTime % 60)).padStart(2, '0')} ({currentVideoTime.toFixed(1)}s)</p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <button
+            onClick={testFirebase}
+            className="flex items-center gap-2 bg-blue-500 text-white px-3 py-2 rounded-lg hover:bg-blue-600 transition-colors text-sm"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Test Firebase Connection</span>
+          </button>
+          <button
+            onClick={createScheduleDoc}
+            className="flex items-center gap-2 bg-purple-500 text-white px-3 py-2 rounded-lg hover:bg-purple-600 transition-colors text-sm"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            <span>Create Schedule Document</span>
+          </button>
+        </div>
+      </div>
+
       {/* Analysis Tools Section */}
       <div className="border-b border-gray-200 pb-4">
         <h4 className="font-semibold text-dark mb-3">
           Analysis Tools
         </h4>
         <div className="space-y-3">
+          {selectedClimber && (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm font-medium text-green-800">
+                  Currently Tracking: {selectedClimber}
+                </span>
+              </div>
+            </div>
+          )}
           <div className="text-sm text-gray-600">
-            <p className="mb-2">Current stream analysis features:</p>
+            <p className="mb-2">Click on a climber's name to record their start time:</p>
             <ul className="list-disc list-inside space-y-1 text-xs">
               <li>Performance tracking</li>
               <li>Route analysis</li>
@@ -235,10 +369,12 @@ const AnalyseStreamPage: React.FC = () => {
 
       {/* Live Schedule */}
       <div>
-        <Schedule 
+        <AnalysisSchedule 
           scheduleData={scheduleData} 
           compact={isMobile}
           className=""
+          onClimberClick={handleClimberClick}
+          currentVideoTime={currentVideoTime}
         />
       </div>
     </div>
