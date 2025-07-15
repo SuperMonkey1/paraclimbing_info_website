@@ -20,7 +20,7 @@ interface YouTubePlayer {
   destroy: () => void;
 }
 
-const LiveStreamPage: React.FC = () => {
+const AnalyseStreamPage: React.FC = () => {
   const { t } = useTranslation();
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isOurFullscreen, setIsOurFullscreen] = useState(false);
@@ -202,6 +202,24 @@ const LiveStreamPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Analysis Tools Section */}
+      <div className="border-b border-gray-200 pb-4">
+        <h4 className="font-semibold text-dark mb-3">
+          Analysis Tools
+        </h4>
+        <div className="space-y-3">
+          <div className="text-sm text-gray-600">
+            <p className="mb-2">Current stream analysis features:</p>
+            <ul className="list-disc list-inside space-y-1 text-xs">
+              <li>Performance tracking</li>
+              <li>Route analysis</li>
+              <li>Competitor comparison</li>
+              <li>Technical movement review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* Current Event Info */}
       <div className="border-b border-gray-200 pb-4">
         <h4 className="font-semibold text-dark mb-2">
@@ -275,7 +293,7 @@ const LiveStreamPage: React.FC = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>
-                <span className="hidden sm:inline">{t('liveStreamPage.infoPanel.expandButton')}</span>
+                <span className="hidden sm:inline">Close Analysis</span>
               </>
             ) : (
               <>
@@ -285,9 +303,9 @@ const LiveStreamPage: React.FC = () => {
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                <span className="hidden sm:inline">{t('liveStreamPage.infoPanel.toggleButton')}</span>
+                <span className="hidden sm:inline">Analysis Tools</span>
               </>
             )}
           </button>
@@ -300,7 +318,7 @@ const LiveStreamPage: React.FC = () => {
               <div className="p-6 h-full overflow-y-auto">
                 <div className="mb-6 pr-4">
                   <h3 className="text-xl font-bold text-dark">
-                    {t('liveStreamPage.infoPanel.title')}
+                    Stream Analysis
                   </h3>
                 </div>
                 <InfoPanelContent />
@@ -327,10 +345,10 @@ const LiveStreamPage: React.FC = () => {
         <section className="bg-primary text-white py-20">
           <div className="container text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t('liveStreamPage.title')}
+              Stream Analysis
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              {t('liveStreamPage.subtitle')}
+              Advanced video analysis tools for paraclimbing performance review
             </p>
           </div>
         </section>
@@ -366,20 +384,92 @@ const LiveStreamPage: React.FC = () => {
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
-                    <span className="hidden sm:inline">{t('liveStreamPage.infoPanel.toggleButton')}</span>
+                    <span className="hidden sm:inline">Analysis Tools</span>
                   </button>
                 </div>
               </div>
               
               <div className="mt-8 text-center">
                 <h2 className="text-2xl font-bold text-dark mb-4">
-                  {t('liveStreamPage.streamInfo.title')}
+                  Performance Analysis Stream
                 </h2>
                 <p className="text-gray-700 max-w-3xl mx-auto">
-                  {t('liveStreamPage.streamInfo.description')}
+                  Use advanced analysis tools to review climbing performance, technique, and strategy. Perfect for coaches, athletes, and climbing enthusiasts looking to improve their understanding of competitive paraclimbing.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="section bg-gray-100">
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-dark text-center mb-12">
+                Analysis Features
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <div className="text-primary mb-4">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-dark mb-2">Performance Tracking</h3>
+                  <p className="text-gray-600 text-sm">Monitor athlete progress and compare performances across different competitions and time periods.</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <div className="text-primary mb-4">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-dark mb-2">Route Analysis</h3>
+                  <p className="text-gray-600 text-sm">Detailed breakdown of climbing routes, hold difficulty, and optimal movement patterns.</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <div className="text-primary mb-4">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-dark mb-2">Competitor Comparison</h3>
+                  <p className="text-gray-600 text-sm">Side-by-side analysis of different athletes' approaches to the same routes and problems.</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <div className="text-primary mb-4">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-dark mb-2">Technical Review</h3>
+                  <p className="text-gray-600 text-sm">Frame-by-frame analysis of climbing technique, body positioning, and movement efficiency.</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <div className="text-primary mb-4">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-dark mb-2">Timing Analysis</h3>
+                  <p className="text-gray-600 text-sm">Precise timing measurements for route completion, rest periods, and movement sequences.</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <div className="text-primary mb-4">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-dark mb-2">Report Generation</h3>
+                  <p className="text-gray-600 text-sm">Generate detailed analysis reports for athletes, coaches, and training program development.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -389,25 +479,23 @@ const LiveStreamPage: React.FC = () => {
         <section className="section bg-secondary text-white">
           <div className="container text-center">
             <h2 className="text-3xl font-bold mb-4">
-              {t('liveStreamPage.cta.title')}
+              Ready to Analyze?
             </h2>
             <p className="max-w-2xl mx-auto mb-8">
-              {t('liveStreamPage.cta.description')}
+              Start using our advanced stream analysis tools to improve climbing performance and understanding. Perfect for coaches, athletes, and climbing enthusiasts.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a 
-                href="https://www.youtube.com/@paraclimbinginfo" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/live-stream" 
                 className="btn bg-white text-secondary hover:bg-gray-100"
               >
-                {t('liveStreamPage.cta.subscribe')}
+                Watch Live Stream
               </a>
               <a 
                 href="/activities" 
                 className="btn bg-primary text-white hover:bg-red-800"
               >
-                {t('liveStreamPage.cta.viewEvents')}
+                View Events
               </a>
             </div>
           </div>
@@ -417,4 +505,4 @@ const LiveStreamPage: React.FC = () => {
   );
 };
 
-export default LiveStreamPage;
+export default AnalyseStreamPage;
